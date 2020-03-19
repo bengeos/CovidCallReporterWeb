@@ -7,6 +7,8 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AdminPageLayoutComponent } from './layouts/admin-page-layout/admin-page-layout.component';
+import { AuthPageLayoutComponent } from './layouts/auth-page-layout/auth-page-layout.component';
 
 @NgModule({
   imports: [
@@ -20,6 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    AdminPageLayoutComponent,
+    AuthPageLayoutComponent,
 
   ],
   providers: [],

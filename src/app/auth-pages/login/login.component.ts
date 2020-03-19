@@ -36,12 +36,12 @@ export class LoginComponent implements OnInit {
         } else {
             this.loading = false;
             this.new_login_user = new LoginUser();
-            swal({
-                title: authCall.error,
-                text: authCall.message,
-                buttonsStyling: true,
-                confirmButtonClass: 'btn btn-success'
-            });
+            // swal({
+            //     title: authCall.error,
+            //     text: authCall.message,
+            //     buttonsStyling: true,
+            //     confirmButtonClass: 'btn btn-success'
+            // });
         }
     }
 
