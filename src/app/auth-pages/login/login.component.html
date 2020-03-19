@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<div class="main-content">
+  <form class="form-signin card card-profile" (submit)="loginUser()">
+    <div class="card-avatar">
+      <a href="#pablo">
+        <img class="img" src="../../../assets/img/angular2-logo-red.png" />
+      </a>
+    </div>
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Welcome To Turumba<br>Messaging</h1>
+      <p>Turumba Messaging Platform</p>
+    </div>
+
+    <div class="form-label-group">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [(ngModel)]="new_login_user.email" name="user_email">
+      </mat-form-field>
+    </div>
+    <div class="form-label-group">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" type="password" [(ngModel)]="new_login_user.password" name="user_password">
+      </mat-form-field>
+    </div>
+    <a [routerLink]="['/auth/get-reset-code']">Forgot your password?</a>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <a [routerLink]="['/auth/register']">Do not have account yet? Create Account</a>
+    <div class="mt-5 mb-3 text-muted text-center"><a href="http://negarit.net">Powered By Negarit</a> <br> © 2019-2020</div>
+  </form>
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>
+
