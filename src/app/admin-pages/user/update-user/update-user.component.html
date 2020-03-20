@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Update User</h1>
+<div mat-dialog-content>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Full Name" [(ngModel)]="update_user.full_name" name="full_name">
+    </mat-form-field>
+  </div>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" [(ngModel)]="update_user.email" name="email">
+    </mat-form-field>
+  </div>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Phone" [(ngModel)]="update_user.phone" name="phone">
+    </mat-form-field>
+  </div>
+  <div class="form-label-group">
+    <mat-form-field>
+      <mat-select placeholder="Permission" [(ngModel)]="update_user.role_id" name="role_id">
+        <mat-option *ngFor="let role of roles_list" [value]="role.id">
+          {{role.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="form-label-group">
+    <button mat-raised-button (click)="updateUser()" class="btn btn-primary pull-right">Update User</button>
+    <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
+  </div>
+</div>
+<div class="my-container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }"></ngx-loading>
+</div>

@@ -122,21 +122,21 @@ export class AuthServicesService {
     this.routeManager.navigate(['/auth/login'])
   }
   public setUserToken(user_token: string) {
-    localStorage.setItem('book_delivery_token', user_token);
+    localStorage.setItem('covid_call_reporter_token', user_token);
   }
   public getUserToken() {
-    return localStorage.getItem('book_delivery_token')
+    return localStorage.getItem('covid_call_reporter_token')
   }
   public setFullName(full_name: string) {
-    localStorage.setItem('book_delivery_full_name', full_name);
+    localStorage.setItem('covid_call_reporter_full_name', full_name);
   }
   public getFullName() {
-    return localStorage.getItem('book_delivery_full_name')
+    return localStorage.getItem('covid_call_reporter_full_name')
   }
   public setUserAuthData(user_token: string) {
-    localStorage.setItem('book_delivery_user_auth_data', user_token);
+    localStorage.setItem('covid_call_reporter_user_auth_data', user_token);
   }
   public getUserAuthData() {
-    return JSON.parse(localStorage.getItem('book_delivery_user_auth_data'))
+    return JSON.parse(localStorage.getItem('covid_call_reporter_user_auth_data'))
   }
 }

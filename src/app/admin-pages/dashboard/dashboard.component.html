@@ -1,3 +1,107 @@
-<p>
-  dashboard works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">mail_outline</i>
+            </div>
+            <p class="card-category">Sent Messages</p>
+            <h3 class="card-title">{{dashboard_count_data.sent_messages}}
+              <small>MSGs</small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger">mail_outline</i>
+              <a>Total Sent Messages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">textsms</i>
+            </div>
+            <p class="card-category">Received Messages</p>
+            <h3 class="card-title">{{dashboard_count_data.received_messages}}
+              <small>MSGs</small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">textsms</i> Total Received Messages
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">contacts</i>
+            </div>
+            <p class="card-category">Contacts</p>
+            <h3 class="card-title">{{dashboard_count_data.contacts}}
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">contacts</i> Total Message Ports
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">supervisor_account</i>
+            </div>
+            <p class="card-category">Users</p>
+            <h3 class="card-title">{{dashboard_count_data.users}}
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">supervisor_account</i> User Accounts
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div class="ct-chart" id="DailySentMessagesChart" style="height: 300px"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Messages History</h4>
+            <button mat-raised-button type="button" matTooltip="Move To The Left"
+                    [matTooltipPosition]="'above'" (click)="moveDailyMessageHistory(-1);"
+                    class="btn btn-primary btn-link btn-md btn-just-icon pull-right">
+              <i class="fa fa-arrow-circle-right"></i>
+            </button>
+            <button mat-raised-button type="button" matTooltip="Move To The Right"
+                    [matTooltipPosition]="'above'" (click)="moveDailyMessageHistory(1);"
+                    class="btn btn-primary btn-link btn-md btn-just-icon pull-left">
+              <i class="fa fa-arrow-circle-left"></i>
+            </button>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> Daily Sent Messages Count
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>

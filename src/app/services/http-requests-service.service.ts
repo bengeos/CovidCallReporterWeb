@@ -5,9 +5,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpRequestsServiceService {
-  public root_negarit_url = 'https://api.negarit.net/api/'; // NEGARIT-API SERVER
-  // public root_url = 'https://api.turumba.negarit.net/'; // Turumba Production Server
-  // public root_url = 'https://api.staging.turumba.negarit.net/'; // Turumba STAGING SERVER
   public root_url = 'http://127.0.0.1:8000/'; // BENGEOS Local Server URL s
   public api_root_url = this.root_url + 'api/';
 
@@ -59,12 +56,5 @@ export class HttpRequestsServiceService {
   }
   public getApiRootUrl() {
     return this.api_root_url;
-  }
-
-  public sendGetRequestToNegarit(routeName) {
-    return this.httpRequest.get(this.root_negarit_url + routeName);
-  }
-  public sendPostRequestToNegarit(routeName, body, header) {
-    return this.httpRequest.post(this.root_negarit_url + routeName, body, header);
   }
 }
