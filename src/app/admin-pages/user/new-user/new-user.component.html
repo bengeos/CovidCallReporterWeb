@@ -17,7 +17,7 @@
   </div>
   <div class="form-label-group">
     <mat-form-field>
-      <mat-select placeholder="Permission" [(ngModel)]="new_user.role_id" name="role_id">
+      <mat-select placeholder="Role" [(ngModel)]="new_user.role_id" name="role_id">
         <mat-option *ngFor="let role of roles_list" [value]="role.id">
           {{role.name}}
         </mat-option>
