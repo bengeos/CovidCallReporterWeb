@@ -21,9 +21,11 @@ import {
   MatTooltipModule
 } from "@angular/material";
 import {NgxLoadingModule} from "ngx-loading";
+import { CallReportComponent } from './call-report/call-report.component';
+import { ReportCategorizerComponent } from './report-categorizer/report-categorizer.component';
 
 @NgModule({
-  declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent],
+  declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent, ReportCategorizerComponent],
   entryComponents: [NewUserComponent, UpdateUserComponent],
   imports: [
     CommonModule,

@@ -1,0 +1,150 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">ring_volume</i>
+            </div>
+            <p class="card-category">Call Reports</p>
+            <h3 class="card-title"> 120
+              <small>Calls</small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger">ring_volume</i>
+              <a>Total Sent Messages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">textsms</i>
+            </div>
+            <p class="card-category">Rummers</p>
+            <h3 class="card-title"> 20
+              <small>MSGs</small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">textsms</i> Rummers
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">contacts</i>
+            </div>
+            <p class="card-category">Contacts</p>
+            <h3 class="card-title">
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">contacts</i> Total Message Ports
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">supervisor_account</i>
+            </div>
+            <p class="card-category">Users</p>
+            <h3 class="card-title">
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">supervisor_account</i> User Accounts
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Call Reports:</span>
+                <ul class="nav nav-tabs pull-right" data-tabs="tabs">
+                  <li class="nav-item pull-right">
+                    <a mat-button class="nav-link active" (click)="addNewUser()">
+                      <i class="material-icons">ring_volume</i> New Call Report
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <mat-paginator [length]="paginated_call_report.total"
+                             [pageSize]="paginated_call_report.per_page"
+                             [pageSizeOptions]="pageSizeOptions"
+                             (page)="updatePaginatedUsersData($event)" showFirstLastButtons>
+              </mat-paginator>
+              <table class="table">
+                <thead class=" text-primary">
+                <th> ID </th>
+                <th> Full Name </th>
+                <th> Email </th>
+                <th> Phone </th>
+                <th> Role </th>
+                <th> Updated By </th>
+                <th> Created At </th>
+                <th> </th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let callReport of paginated_call_report.data; let i = index">
+                  <td> {{paginated_call_report.from + i}} </td>
+                  <td> {{callReport.full_name}} </td>
+                  <td> {{callReport.email}} </td>
+                  <td> {{callReport.phone}} </td>
+                  <td> {{callReport.role.name}} </td>
+                  <td> {{callReport.full_name}} </td>
+                  <td class="text-primary"> {{callReport.created_at | date: 'short'}} </td>
+                  <td class="td-actions">
+                    <button mat-raised-button type="button" matTooltip="Edit"
+                            [matTooltipPosition]="'above'" (click)="updateUser(user)"
+                            class="btn btn-danger btn-link btn-sm btn-just-icon">
+                      <i class="material-icons">edit</i>
+                    </button>
+                    <button mat-raised-button type="button" matTooltip="Remove"
+                            [matTooltipPosition]="'above'" (click)="deleteUser(user)"
+                            class="btn btn-danger btn-link btn-sm btn-just-icon">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <mat-paginator [length]="paginated_call_report.total"
+                             [pageSize]="paginated_call_report.per_page"
+                             [pageSizeOptions]="pageSizeOptions"
+                             (page)="updatePaginatedUsersData($event)" showFirstLastButtons>
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>
