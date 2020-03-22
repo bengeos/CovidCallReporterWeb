@@ -7,6 +7,7 @@ export class User {
     public full_name: string;
     public email: string;
     public phone: string;
+    public password: string;
     public is_active: boolean;
     public role: Role;
     public created_by: User;

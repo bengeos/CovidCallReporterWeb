@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-header card-header-tabs card-header-primary">
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Regions:</span>
+                <ul class="nav nav-tabs pull-right" data-tabs="tabs">
+                    <li class="nav-item pull-right">
+                        <a mat-button class="nav-link active" (click)="addNewRegion()">
+                            <i class="material-icons">person</i> New Region
+                            <div class="ripple-container"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <mat-paginator [length]="paginated_regions.total"
+                           [pageSize]="paginated_regions.per_page"
+                           [pageSizeOptions]="pageSizeOptions"
+                           (page)="updatePaginatedRegionData($event)" showFirstLastButtons>
+            </mat-paginator>
+            <table class="table">
+                <thead class=" text-primary">
+                <th> ID</th>
+                <th> Name</th>
+                <th> Latitude</th>
+                <th> Longitude</th>
+                <th></th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let region of paginated_regions.data; let i = index">
+                    <td> {{paginated_regions.from + i}}</td>
+                    <td (click)="onSelectRegion(region)"> {{region.name}}</td>
+                    <td> {{region.latitude}}</td>
+                    <td> {{region.longitude}}</td>
+                    <td class="td-actions">
+                        <button mat-raised-button type="button" matTooltip="Edit"
+                                [matTooltipPosition]="'above'" (click)="updateRegion(region)"
+                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button mat-raised-button type="button" matTooltip="Remove"
+                                [matTooltipPosition]="'above'" (click)="deleteRegion(region)"
+                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="paginated_regions.total"
+                           [pageSize]="paginated_regions.per_page"
+                           [pageSizeOptions]="pageSizeOptions"
+                           (page)="updatePaginatedRegionData($event)" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+</div>

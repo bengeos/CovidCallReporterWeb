@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>New Region</h1>
+<div mat-dialog-content>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" [(ngModel)]="newRegion.name" name="name">
+    </mat-form-field>
+  </div>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Latitude" [(ngModel)]="newRegion.latitude" name="latitude">
+    </mat-form-field>
+  </div>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Longitude" [(ngModel)]="newRegion.longitude" name="longitude">
+    </mat-form-field>
+  </div>
+  <!--<div class="form-label-group">-->
+    <!--<mat-form-field>-->
+      <!--<mat-select placeholder="Role" [(ngModel)]="new_user.role_id" name="role_id">-->
+        <!--<mat-option *ngFor="let role of roles_list" [value]="role.id">-->
+          <!--{{role.name}}-->
+        <!--</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-form-field>-->
+  <!--</div>-->
+  <br>
+  <div class="form-label-group">
+    <button mat-raised-button (click)="addNewRegion()" class="btn btn-primary pull-right">Add Region</button>
+    <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
+  </div>
+</div>
+<div class="my-container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }"></ngx-loading>
+</div>

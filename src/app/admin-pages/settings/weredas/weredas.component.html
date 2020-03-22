@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-header card-header-tabs card-header-primary">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <span class="nav-tabs-title">Wereda`s
+            <a mat-button class="btn btn-default">
+              {{selectedZone.name}}
+            </a>
+        </span>
+        <ul class="nav nav-tabs pull-right" data-tabs="tabs">
+          <li class="nav-item pull-right">
+            <a mat-button class="nav-link active" (click)="addNewWereda()">
+              <i class="material-icons">person</i> New Wereda
+              <div class="ripple-container"></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <mat-paginator [length]="paginatedWereda.total"
+                     [pageSize]="paginatedWereda.per_page"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="updatePaginatedWeredaData($event)" showFirstLastButtons>
+      </mat-paginator>
+      <table class="table">
+        <thead class=" text-primary">
+        <th> ID </th>
+        <th> Zone </th>
+        <th> Region </th>
+        <th> Latitude </th>
+        <th> Longitude </th>
+        <th> </th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let wereda of paginatedWereda.data; let i = index">
+          <td> {{paginatedWereda.from + i}} </td>
+          <td> {{wereda.name}} </td>
+          <td> {{wereda.zone.name}} </td>
+          <td> {{wereda.name}} </td>
+          <td> {{wereda.latitude}} </td>
+          <td> {{wereda.longitude}} </td>
+          <td class="td-actions">
+            <button mat-raised-button type="button" matTooltip="Edit"
+                    [matTooltipPosition]="'above'" (click)="updateWereda(zone)"
+                    class="btn btn-danger btn-link btn-sm btn-just-icon">
+              <i class="material-icons">edit</i>
+            </button>
+            <button mat-raised-button type="button" matTooltip="Remove"
+                    [matTooltipPosition]="'above'" (click)="deleteWereda(zone)"
+                    class="btn btn-danger btn-link btn-sm btn-just-icon">
+              <i class="material-icons">close</i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <mat-paginator [length]="paginatedWereda.total"
+                     [pageSize]="paginatedWereda.per_page"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="updatePaginatedWeredaData($event)" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+</div>

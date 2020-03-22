@@ -1,23 +1,39 @@
+import {Region} from "../settings/regions/regions.objects";
+import {Zone} from "../settings/zones/zones.objects";
+import {Wereda} from "../settings/weredas/weredas.objects";
+import {City, Kebele, SubCity} from "../settings/Settings.Objects";
 /**
  * Created by BENGEOS on 3/21/20.
  */
 export class CallReport {
     public id: number;
     public region_id: number;
+    public region: Region;
     public zone_id: number;
+    public zone: Zone;
     public wereda_id: number;
+    public wereda: Wereda;
     public city_id: number;
+    public city: City;
     public sub_city_id: number;
+    public sub_city: SubCity;
     public kebele_id: number;
+    public kebele: Kebele;
     public age: number;
-    public phone: number;
+    public phone: string;
+    public full_name: string;
     public occupation: number;
-    public other: number;
-    public gender: number;
+    public other: string;
+    public gender: string;
+    public report_type: string;
+    public node: any;
+    public rummer_types: any;
     public created_at: string;
 
     constructor() {
         this.id = null;
+        this.region_id = null;
+        this.gender = 'MALE';
     }
 }
 
