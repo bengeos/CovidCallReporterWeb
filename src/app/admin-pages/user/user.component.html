@@ -30,7 +30,6 @@
                 <th> ID </th>
                 <th> Full Name </th>
                 <th> Email </th>
-                <th> Phone </th>
                 <th> Role </th>
                 <th> Updated By </th>
                 <th> Created At </th>
@@ -41,7 +40,6 @@
                   <td> {{paginated_users.from + i}} </td>
                   <td> {{user.full_name}} </td>
                   <td> {{user.email}} </td>
-                  <td> {{user.phone}} </td>
                   <td> {{user.role.name}} </td>
                   <td> {{user.full_name}} </td>
                   <td class="text-primary"> {{user.created_at | date: 'short'}} </td>

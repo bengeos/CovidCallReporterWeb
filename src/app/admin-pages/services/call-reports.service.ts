@@ -80,6 +80,9 @@ export class CallReportsService {
     public updateCallReport(newCallReport: CallReport) {
         return this.httpService.sendPatchRequest('call_report', newCallReport, this.authService.getUserToken());
     }
+    public updateCallReportStatus(newCallReport: CallReport) {
+        return this.httpService.sendPatchRequest('call_report_status', newCallReport, this.authService.getUserToken());
+    }
 
     public deleteCallReport(newCallReport: CallReport) {
         return this.httpService.sendDeleteRequest('call_report/' + newCallReport.id, this.authService.getUserToken());

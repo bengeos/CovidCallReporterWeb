@@ -38,15 +38,16 @@ import {ReportComponent} from './report/report.component';
 import {UpdateCallReportComponent} from './call-report/update-call-report/update-call-report.component';
 import { RapidResponseComponent } from './rapid-response/rapid-response.component';
 import { FollowUpComponent } from './follow-up/follow-up.component';
+import { NewReportComponent } from './report/new-report/new-report.component';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
         ReportCategorizerComponent, NewCallReportComponent, SettingsComponent, RegionsComponent, ZonesComponent,
         WeredasComponent, NewRegionComponent, UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent,
-        NewWeredaComponent, UpdateWeredaComponent, ReportComponent, UpdateCallReportComponent, RapidResponseComponent, FollowUpComponent],
+        NewWeredaComponent, UpdateWeredaComponent, ReportComponent, UpdateCallReportComponent, RapidResponseComponent, FollowUpComponent, NewReportComponent],
     entryComponents: [NewUserComponent, UpdateUserComponent, NewCallReportComponent, NewRegionComponent,
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
-        UpdateCallReportComponent],
+        UpdateCallReportComponent, NewReportComponent],
     imports: [
         CommonModule,
         AdminPagesRoutingModule,

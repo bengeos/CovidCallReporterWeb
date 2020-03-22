@@ -28,6 +28,9 @@ export class CallReport {
     public report_type: string;
     public node: any;
     public rummer_types: any;
+    public is_for_rrt: boolean;
+    public is_for_fft: boolean;
+    public is_for_other: boolean;
     public created_at: string;
 
     constructor() {

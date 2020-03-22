@@ -1,0 +1,169 @@
+<h1 mat-dialog-title>Update Report</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-sm-7">
+      <div>
+        <label>Person Information</label>
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="form-label-group">
+              <mat-form-field class="example-full-width" disabled>
+                <input matInput placeholder="Full Name" [(ngModel)]="new_call_report.full_name"
+                       name="full_name" disabled>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="form-label-group">
+              <mat-form-field class="example-full-width" disabled>
+                <input matInput placeholder="Phone" [(ngModel)]="new_call_report.phone" name="phone" disabled>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="Gender" [(ngModel)]="new_call_report.gender" name="gender" disabled>
+                  <mat-option *ngFor="let gender of genders" [value]="gender">
+                    {{gender}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-label-group">
+              <div class="form-label-group">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Age" [(ngModel)]="new_call_report.age" name="age" disabled>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div>
+        <label>Location</label>
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="Region" [(ngModel)]="new_call_report.region_id" disabled
+                            name="region_id" (selectionChange)="onRegionChanges($event)">
+                  <mat-option [value]="null">None</mat-option>
+                  <mat-option *ngFor="let region of regions" [value]="region.id">
+                    {{region.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="Zone" [(ngModel)]="new_call_report.zone_id" name="zone_id"
+                            disabled>
+                  <mat-option *ngFor="let zone of zones" [value]="zone.id">
+                    {{zone.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="Wereda" [(ngModel)]="new_call_report.wereda_id"
+                            name="wereda_id" disabled>
+                  <mat-option *ngFor="let role of roles_list" [value]="role.id">
+                    {{role.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="City" [(ngModel)]="new_call_report.city_id" name="city_id" disabled>
+                  <mat-option *ngFor="let role of roles_list" [value]="role.id">
+                    {{role.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="SubCity" [(ngModel)]="new_call_report.sub_city_id"
+                            name="sub_city_id" disabled>
+                  <mat-option *ngFor="let role of roles_list" [value]="role.id">
+                    {{role.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="Report Type" [(ngModel)]="new_call_report.report_type"
+                            name="other" disabled>
+                  <mat-option *ngFor="let information of providedInfromation"
+                              [value]="information">{{information}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-label-group">
+              <mat-form-field>
+                <mat-select placeholder="Rummer On Covid 19" [(ngModel)]="new_call_report.rummer_types"
+                            name="other" multiple disabled>
+                  <mat-option *ngFor="let covidSign of covidSigns" [value]="covidSign">{{covidSign}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="form-label-group">
+        <section class="example-section">
+          <mat-checkbox class="example-margin" [(ngModel)]="new_call_report.is_for_rrt">Is For Rapid Response team</mat-checkbox>
+        </section>
+      </div>
+      <div class="form-label-group">
+        <section class="example-section">
+          <mat-checkbox class="example-margin" [(ngModel)]="new_call_report.is_for_fft">Is For Followup team</mat-checkbox>
+        </section>
+      </div>
+      <div class="form-label-group">
+        <section class="example-section">
+          <mat-checkbox class="example-margin" [(ngModel)]="new_call_report.is_for_other">Is For Other team</mat-checkbox>
+        </section>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-label-group">
+    <button mat-raised-button (click)="updateReport()" class="btn btn-primary pull-right">Update Report</button>
+    <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
+  </div>
+</div>
+<div class="my-container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }"></ngx-loading>
+</div>

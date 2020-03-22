@@ -11,11 +11,6 @@
     </mat-form-field>
   </div>
   <div class="form-label-group">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Phone" [(ngModel)]="update_user.phone" name="phone">
-    </mat-form-field>
-  </div>
-  <div class="form-label-group">
     <mat-form-field>
       <mat-select placeholder="Role" [(ngModel)]="update_user.role_id" name="role_id">
         <mat-option *ngFor="let role of roles_list" [value]="role.id">

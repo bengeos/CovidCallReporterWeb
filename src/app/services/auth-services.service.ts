@@ -50,7 +50,8 @@ export class AuthServicesService {
     if (state) {
       if (response && response.status && response.token) {
         if (response.result && response.result.full_name) {
-          this.setFullName(response.token);
+          this.setFullName(response.result.full_name);
+          this.setUserRoleId(response.result.role_id);
         }
         this.setUserToken(response.token);
         const authCallback = new AuthCallback();
@@ -138,5 +139,11 @@ export class AuthServicesService {
   }
   public getUserAuthData() {
     return JSON.parse(localStorage.getItem('covid_call_reporter_user_auth_data'))
+  }
+  public setUserRoleId(role_id: string) {
+    localStorage.setItem('covid_call_reporter_role_id', role_id);
+  }
+  public getUserRoleId() {
+    return localStorage.getItem('covid_call_reporter_role_id')
   }
 }
