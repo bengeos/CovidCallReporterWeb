@@ -4,58 +4,84 @@
             <div class="col-lg-12 col-md-12">
                 <div class="card">
                     <div class="card-header card-header-tabs card-header-primary">
+                        <div class="nav-tabs-navigation pull-right">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Reports:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#all_call_reports" data-toggle="tab"
+                                           (click)="changeCallReports(true)">
+                                            <i class="material-icons">bug_report</i> All Toll Free
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#all_community" data-toggle="tab"
+                                           (click)="changeCallReports(true)">
+                                            <i class="material-icons">code</i> All Community
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#all_travelers" data-toggle="tab"
+                                           (click)="changeCallReports(true)">
+                                            <i class="material-icons">cloud</i> All Medical
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
-                                <span class="nav-tabs-title">All Reports:</span>
+                                <span class="nav-tabs-title">Reports:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link active" href="#new_call_reports" data-toggle="tab"
+                                           (click)="changeCallReports(false)">
+                                            <i class="material-icons">bug_report</i> New Toll Free
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#new_community" data-toggle="tab"
+                                           (click)="changeCallReports(false)">
+                                            <i class="material-icons">code</i> New Community
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#new_travelers" data-toggle="tab"
+                                           (click)="changeCallReports(false)">
+                                            <i class="material-icons">cloud</i> New Medical
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
+
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <mat-paginator [length]="paginated_call_report.total"
-                                           [pageSize]="paginated_call_report.per_page"
-                                           [pageSizeOptions]="pageSizeOptions"
-                                           (page)="updatePaginatedCallReportData($event)" showFirstLastButtons>
-                            </mat-paginator>
-                            <table class="table">
-                                <thead class=" text-primary">
-                                <th> ID</th>
-                                <th> Region</th>
-                                <th> City</th>
-                                <th> Full Name</th>
-                                <th> Age</th>
-                                <th> Phone</th>
-                                <th> gender</th>
-                                <th> Report Type</th>
-                                <th> Created At</th>
-                                <th></th>
-                                </thead>
-                                <tbody>
-                                <tr *ngFor="let callReport of paginated_call_report.data; let i = index">
-                                    <td> {{paginated_call_report.from + i}}</td>
-                                    <td> {{callReport.region != null? callReport.region.name : ''}}</td>
-                                    <td> {{callReport.city != null? callReport.city.name: ''}}</td>
-                                    <td> {{callReport.full_name}}</td>
-                                    <td> {{callReport.age}}</td>
-                                    <td> {{callReport.phone}}</td>
-                                    <td> {{callReport.gender}}</td>
-                                    <td> {{callReport.report_type}}</td>
-                                    <td class="text-primary"> {{callReport.created_at | date: 'short'}}</td>
-                                    <td class="td-actions">
-                                        <button mat-raised-button type="button" matTooltip="Categorize"
-                                                [matTooltipPosition]="'above'" (click)="FilterCallReport(callReport)"
-                                                class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                            <i class="material-icons">call_split</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <mat-paginator [length]="paginated_call_report.total"
-                                           [pageSize]="paginated_call_report.per_page"
-                                           [pageSizeOptions]="pageSizeOptions"
-                                           (page)="updatePaginatedCallReportData($event)" showFirstLastButtons>
-                            </mat-paginator>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="new_call_reports">
+                                <app-call-reports [allCallReports]="allCallReports"></app-call-reports>
+                            </div>
+                            <div class="tab-pane" id="new_community">
+                                <app-community-reports></app-community-reports>
+                            </div>
+                            <div class="tab-pane" id="new_travelers">
+                                <app-traveler-reports></app-traveler-reports>
+                            </div>
+                            <div class="tab-pane " id="all_call_reports">
+                                <app-call-reports [allCallReports]="allCallReports"></app-call-reports>
+                            </div>
+                            <div class="tab-pane" id="all_community">
+                                <app-community-reports></app-community-reports>
+                            </div>
+                            <div class="tab-pane" id="all_travelers">
+                                <app-traveler-reports></app-traveler-reports>
+                            </div>
                         </div>
                     </div>
                 </div>

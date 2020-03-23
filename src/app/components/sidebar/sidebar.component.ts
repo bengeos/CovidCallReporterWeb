@@ -13,6 +13,8 @@ export const ROUTES: RouteInfo[] = [
     {path: '/admin/call_reports', title: 'Call Report', icon: 'dialer_sip', class: ''},
     {path: '/admin/reports', title: 'Reports', icon: 'assignment', class: ''},
     {path: '/admin/rapid_response', title: 'Rapid Response', icon: 'flight_takeoff', class: ''},
+    {path: '/admin/followups', title: 'Followup', icon: 'device_hub', class: ''},
+    {path: '/admin/others', title: 'Others Team', icon: 'flight_takeoff', class: ''},
     {path: '/admin/users', title: 'Users', icon: 'person', class: ''},
     {path: '/admin/settings', title: 'Settings', icon: 'settings', class: ''},
 ];
@@ -55,4 +57,8 @@ export class SidebarComponent implements OnInit {
         }
         return true;
     };
+
+    public logout() {
+        this.authService.logOut();
+    }
 }

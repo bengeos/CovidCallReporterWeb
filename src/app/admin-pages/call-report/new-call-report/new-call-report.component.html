@@ -133,9 +133,9 @@
                     <div class="col-sm-12">
                         <div class="form-label-group">
                             <mat-form-field>
-                                <mat-select placeholder="Rummer On Covid 19" [(ngModel)]="new_call_report.rummer_types"
+                                <mat-select placeholder="Rummer On Covid 19" [(ngModel)]="new_call_report.rumor_types"
                                             name="other" multiple>
-                                    <mat-option *ngFor="let covidSign of covidSigns" [value]="covidSign">{{covidSign}}
+                                    <mat-option *ngFor="let rumorType of rummerTypes" [value]="rumorType">{{rumorType.name}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -143,23 +143,8 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="form-label-group">
-                            <mat-form-field>
-                                <mat-select placeholder="Rummer On Covid 19" [(ngModel)]="new_call_report.node"
-                                            name="other" multiple>
-                                    <mat-option *ngFor="let covidSign of covidSigns" [value]="covidSign">{{covidSign}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-label-group">
-                            <mat-form-field>
-                                <mat-select placeholder="Rummer On Covid 19" [(ngModel)]="new_call_report.node"
-                                            name="other" multiple>
-                                    <mat-option *ngFor="let covidSign of covidSigns" [value]="covidSign">{{covidSign}}
-                                    </mat-option>
-                                </mat-select>
+                            <mat-form-field class="example-full-width">
+                                <textarea matInput type="text" placeholder="Description" rows="3" [(ngModel)]="new_call_report.description" name="description"></textarea>
                             </mat-form-field>
                         </div>
                     </div>

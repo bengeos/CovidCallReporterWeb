@@ -1,0 +1,46 @@
+<div class="table-responsive">
+  <mat-paginator [length]="paginated_call_report.total"
+                 [pageSize]="paginated_call_report.per_page"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="updatePaginatedCallReportData($event)" showFirstLastButtons>
+  </mat-paginator>
+  <table class="table">
+    <thead class=" text-primary">
+    <th> ID</th>
+    <th> Full Name</th>
+    <th> Age</th>
+    <th> Phone</th>
+    <th> gender</th>
+    <th> Region</th>
+    <th> City</th>
+    <th> Report Type</th>
+    <th> Created At</th>
+    <th></th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let callReport of paginated_call_report.data; let i = index">
+      <td> {{paginated_call_report.from + i}}</td>
+      <td> {{callReport.full_name}}</td>
+      <td> {{callReport.age}}</td>
+      <td> {{callReport.phone}}</td>
+      <td> {{callReport.gender}}</td>
+      <td> {{callReport.region != null ? callReport.region.name : ''}}</td>
+      <td> {{callReport.city != null ? callReport.city.name : ''}}</td>
+      <td> {{callReport.report_type}}</td>
+      <td class="text-primary"> {{callReport.created_at | date: 'short'}}</td>
+      <td class="td-actions">
+        <button mat-raised-button type="button" matTooltip="Categorize"
+                [matTooltipPosition]="'above'" (click)="updateFollowupCallReport(callReport)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+          <i class="material-icons">call_split</i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="paginated_call_report.total"
+                 [pageSize]="paginated_call_report.per_page"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="updatePaginatedCallReportData($event)" showFirstLastButtons>
+  </mat-paginator>
+</div>

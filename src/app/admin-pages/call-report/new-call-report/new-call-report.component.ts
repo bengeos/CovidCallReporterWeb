@@ -1,10 +1,11 @@
 import {Component, Inject, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {CallReport} from "../call-reports.objects";
-import {RegionsService} from "../../services/regions.service";
-import {Region} from "../../settings/regions/regions.objects";
-import {ZonesService} from "../../services/zones.service";
-import {Zone} from "../../settings/zones/zones.objects";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {CallReport, RumorType} from '../call-reports.objects';
+import {RegionsService} from '../../services/regions.service';
+import {Region} from '../../settings/regions/regions.objects';
+import {ZonesService} from '../../services/zones.service';
+import {Zone} from '../../settings/zones/zones.objects';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {CallReportsService} from '../../services/call-reports.service';
 
 @Component({
     selector: 'app-new-call-report',
@@ -19,9 +20,10 @@ export class NewCallReportComponent implements OnInit, OnChanges {
     public favoriteSeason = '';
     public providedInfromation: string[] = ['Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment', 'Ethiopian'];
     public toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-    public covidSigns: string[] = ['Fever', 'Cough', 'Headache', 'Runny Nose', 'Breathing Difficulty', 'Body Pain', 'Unwellness Feeling'];
+    public rummerTypes: RumorType[] = [];
+    public loading = false;
 
-    constructor(private regionsService: RegionsService, private zonesService: ZonesService,
+    constructor(private regionsService: RegionsService, private zonesService: ZonesService, private callReportService: CallReportsService,
                 public dialogRef: MatDialogRef<NewCallReportComponent>, @Inject(MAT_DIALOG_DATA) new_data: CallReport) {
     }
 
@@ -33,7 +35,15 @@ export class NewCallReportComponent implements OnInit, OnChanges {
             }
         );
         this.zonesService.ZonesListEmitter.subscribe(
-            data => {this.zones = data}
+            data => {
+                this.zones = data
+            }
+        );
+        this.callReportService.getCallRumorTypes();
+        this.callReportService.CallRumorTypesListEmitter.subscribe(
+            data => {
+                this.rummerTypes = data;
+            }
         );
     }
 

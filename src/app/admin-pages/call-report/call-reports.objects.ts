@@ -1,7 +1,7 @@
-import {Region} from "../settings/regions/regions.objects";
-import {Zone} from "../settings/zones/zones.objects";
-import {Wereda} from "../settings/weredas/weredas.objects";
-import {City, Kebele, SubCity} from "../settings/Settings.Objects";
+import {Region} from '../settings/regions/regions.objects';
+import {Zone} from '../settings/zones/zones.objects';
+import {Wereda} from '../settings/weredas/weredas.objects';
+import {City, Kebele, SubCity} from '../settings/Settings.Objects';
 /**
  * Created by BENGEOS on 3/21/20.
  */
@@ -27,16 +27,48 @@ export class CallReport {
     public gender: string;
     public report_type: string;
     public node: any;
-    public rummer_types: any;
-    public is_for_rrt: boolean;
-    public is_for_fft: boolean;
-    public is_for_other: boolean;
+    public rumor_types: RumorType[];
+    public call_rumor_types: CallRumorType[];
+    public report_group_id: number;
+    public description: string;
+    public remark_1: string;
+    public remark_2: string;
     public created_at: string;
 
     constructor() {
         this.id = null;
         this.region_id = null;
         this.gender = 'MALE';
+    }
+}
+
+export class RumorType {
+    public id: number;
+    public name: string;
+    public description: string;
+    constructor() {
+        this.id = null;
+        this.name = '';
+        this.description = '';
+    }
+}
+
+export class CallRumorType {
+    public id: number;
+    public call_report_id: number;
+    public call_rumor_type_id: number;
+    public call_rumor_type: RumorType;
+    constructor() {
+        this.id = null;
+    }
+}
+
+export class ReportGroup {
+    public id: number;
+    public name: string;
+    constructor() {
+        this.id = null;
+        this.name = '';
     }
 }
 

@@ -38,16 +38,25 @@ import {ReportComponent} from './report/report.component';
 import {UpdateCallReportComponent} from './call-report/update-call-report/update-call-report.component';
 import { RapidResponseComponent } from './rapid-response/rapid-response.component';
 import { FollowUpComponent } from './follow-up/follow-up.component';
-import { NewReportComponent } from './report/new-report/new-report.component';
+import { NewReportComponent } from './report/call-reports/new-report/new-report.component';
+import { CallReportsComponent } from './report/call-reports/call-reports.component';
+import { CommunityReportsComponent } from './report/community-reports/community-reports.component';
+import { TravelerReportsComponent } from './report/traveler-reports/traveler-reports.component';
+import { OthersTeamComponent } from './others-team/others-team.component';
+import { RapidCallResponseComponent } from './rapid-response/rapid-call-response/rapid-call-response.component';
+import { UpdateRapidCallResponseComponent } from './rapid-response/rapid-call-response/update-rapid-call-response/update-rapid-call-response.component';
+import { FollowupCallReportsComponent } from './follow-up/followup-call-reports/followup-call-reports.component';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
         ReportCategorizerComponent, NewCallReportComponent, SettingsComponent, RegionsComponent, ZonesComponent,
         WeredasComponent, NewRegionComponent, UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent,
-        NewWeredaComponent, UpdateWeredaComponent, ReportComponent, UpdateCallReportComponent, RapidResponseComponent, FollowUpComponent, NewReportComponent],
+        NewWeredaComponent, UpdateWeredaComponent, ReportComponent, UpdateCallReportComponent, RapidResponseComponent,
+        FollowUpComponent, NewReportComponent, CallReportsComponent, CommunityReportsComponent, TravelerReportsComponent,
+        OthersTeamComponent, RapidCallResponseComponent, UpdateRapidCallResponseComponent, FollowupCallReportsComponent],
     entryComponents: [NewUserComponent, UpdateUserComponent, NewCallReportComponent, NewRegionComponent,
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
-        UpdateCallReportComponent, NewReportComponent],
+        UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent],
     imports: [
         CommonModule,
         AdminPagesRoutingModule,

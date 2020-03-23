@@ -5,7 +5,7 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-warning card-header-icon">
                         <div class="card-icon">
-                            <i class="material-icons">assignment</i>
+                            <i class="material-icons">ring_volume</i>
                         </div>
                         <p class="card-category">Call Reports</p>
                         <h3 class="card-title"> {{paginated_call_report.total}}
@@ -16,24 +16,6 @@
                         <div class="stats">
                             <i class="material-icons text-danger">ring_volume</i>
                             <a>Total Sent Messages</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-success card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">textsms</i>
-                        </div>
-                        <p class="card-category">Rummers</p>
-                        <h3 class="card-title"> 20
-                            <small>Rep</small>
-                        </h3>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">textsms</i> Rummers
                         </div>
                     </div>
                 </div>
@@ -67,10 +49,11 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                 <th> ID</th>
+                                <th> Full Name</th>
+                                <th> Phone</th>
+                                <th> Gender</th>
                                 <th> Region</th>
                                 <th> City</th>
-                                <th> Phone</th>
-                                <th> gender</th>
                                 <th> Report Type</th>
                                 <th> Created At</th>
                                 <th></th>
@@ -78,19 +61,20 @@
                                 <tbody>
                                 <tr *ngFor="let callReport of paginated_call_report.data; let i = index">
                                     <td> {{paginated_call_report.from + i}}</td>
-                                    <td> {{callReport.region != null? callReport.region.name : ''}}</td>
-                                    <td> {{callReport.city != null? callReport.city.name: ''}}</td>
+                                    <td> {{callReport.full_name}}</td>
                                     <td> {{callReport.phone}}</td>
                                     <td> {{callReport.gender}}</td>
+                                    <td> {{callReport.region != null? callReport.region.name : ''}}</td>
+                                    <td> {{callReport.city != null? callReport.city.name: ''}}</td>
                                     <td> {{callReport.report_type}}</td>
                                     <td class="text-primary"> {{callReport.created_at | date: 'short'}}</td>
                                     <td class="td-actions">
-                                        <button mat-raised-button type="button" matTooltip="Edit"
+                                        <button mat-raised-button type="button" matTooltip="Edit" [disabled]="callReport.report_group_id != 0"
                                                 [matTooltipPosition]="'above'" (click)="updateCallReport(callReport)"
                                                 class="btn btn-danger btn-link btn-sm btn-just-icon">
                                             <i class="material-icons">edit</i>
                                         </button>
-                                        <button mat-raised-button type="button" matTooltip="Remove"
+                                        <button mat-raised-button type="button" matTooltip="Remove" [disabled]="callReport.report_group_id != 0"
                                                 [matTooltipPosition]="'above'" (click)="deleteCallReport(callReport)"
                                                 class="btn btn-danger btn-link btn-sm btn-just-icon">
                                             <i class="material-icons">close</i>

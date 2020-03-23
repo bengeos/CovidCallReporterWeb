@@ -1,19 +1,19 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {CallReport, PaginatedCallReport} from '../call-report/call-reports.objects';
-import {MatDialog, MatDialogConfig} from '@angular/material';
-import {SwalMessagesService} from '../services/swal-messages.service';
-import {CallReportsService} from '../services/call-reports.service';
-import {NewReportComponent} from "./call-reports/new-report/new-report.component";
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {CallReport, PaginatedCallReport} from '../../call-report/call-reports.objects';
+import {SwalMessagesService} from '../../services/swal-messages.service';
+import {CallReportsService} from '../../services/call-reports.service';
+import {NewReportComponent} from './new-report/new-report.component';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
-    selector: 'app-report',
-    templateUrl: './report.component.html',
-    styleUrls: ['./report.component.scss']
+    selector: 'app-call-reports',
+    templateUrl: './call-reports.component.html',
+    styleUrls: ['./call-reports.component.scss']
 })
-export class ReportComponent implements OnInit {
+export class CallReportsComponent implements OnInit, OnChanges {
+    @Input() allCallReports;
     public paginated_call_report = new PaginatedCallReport();
     public pageSizeOptions: number[] = [5, 10, 15, 25, 50, 100, 500, 1000];
-    public allCallReports = false;
     public loading = false;
 
     constructor(private dialog: MatDialog, private responseMessageService: SwalMessagesService,
@@ -21,14 +21,27 @@ export class ReportComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.loading = true;
-        this.callReportsService.getPaginatedCallReports();
+        this.updateCallReportsComponent();
         this.callReportsService.PaginatedCallReportEmitter.subscribe(
             data => {
                 this.paginated_call_report = data;
                 this.loading = false;
             }
         );
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        console.log('changes', changes);
+        this.updateCallReportsComponent();
+    }
+
+    public updateCallReportsComponent() {
+        this.loading = true;
+        if (this.allCallReports) {
+            this.callReportsService.getAllPaginatedCallReports();
+        } else {
+            this.callReportsService.getPaginatedCallReports();
+        }
     }
 
     public updatePaginatedCallReportData(event: any) {
@@ -39,7 +52,7 @@ export class ReportComponent implements OnInit {
             + page_num + '&PAGINATE_SIZE=' + paginate_size);
     }
 
-    public FilterCallReport(report: CallReport): void {
+    public updateCallReport(report: CallReport): void {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;
@@ -50,11 +63,11 @@ export class ReportComponent implements OnInit {
             if (result) {
                 console.log('NEW-Report', result);
                 this.loading = true;
-                this.callReportsService.addNewCallReport(result).subscribe(
+                this.callReportsService.updateCallReportStatus(result).subscribe(
                     succes => {
                         this.loading = false;
                         this.responseMessageService.showNotification(2, 'top', 'right', 'Report Updated Successfully');
-                        // this.updateCallReportComponent();
+                        this.updateCallReportsComponent();
                     },
                     failed => {
                         this.loading = false;
@@ -63,9 +76,6 @@ export class ReportComponent implements OnInit {
                 );
             }
         });
-    }
-    public changeCallReports(status) {
-        this.allCallReports = status;
     }
 
 }

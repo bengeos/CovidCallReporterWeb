@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {CallReport, PaginatedCallReport} from "./call-reports.objects";
-import {MatDialog, MatDialogConfig} from "@angular/material";
-import {NewCallReportComponent} from "./new-call-report/new-call-report.component";
-import {SwalMessagesService} from "../services/swal-messages.service";
-import {RegionsService} from "../services/regions.service";
-import {Region} from "../settings/regions/regions.objects";
-import {CallReportsService} from "../services/call-reports.service";
-import {UpdateCallReportComponent} from "./update-call-report/update-call-report.component";
+import {CallReport, PaginatedCallReport} from './call-reports.objects';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {NewCallReportComponent} from './new-call-report/new-call-report.component';
+import {SwalMessagesService} from '../services/swal-messages.service';
+import {RegionsService} from '../services/regions.service';
+import {Region} from '../settings/regions/regions.objects';
+import {CallReportsService} from '../services/call-reports.service';
+import {UpdateCallReportComponent} from './update-call-report/update-call-report.component';
+import {User} from '../user/user.objects';
+import swal from 'sweetalert2';
 
 @Component({
     selector: 'app-call-report',
@@ -96,6 +98,31 @@ export class CallReportComponent implements OnInit {
                     failed => {
                         this.loading = false;
                         this.responseMessageService.displayErrorResponseMessage(failed);
+                    }
+                );
+            }
+        });
+    }
+    public deleteCallReport(report_data: CallReport) {
+        swal({
+                title: 'Are you sure?',
+                text: 'Your will not be able to recover this Report',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55', confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel please!',
+            },
+        ).then((result) => {
+            if (result.value) {
+                this.loading = true;
+                this.callReportsService.deleteCallReport(report_data).subscribe(
+                    succes => {
+                        this.responseMessageService.showNotification(4, 'top', 'right', 'Report Deleted Successfully');
+                        this.updateCallReportComponent();
+                    },
+                    failed => {
+                        this.responseMessageService.displayErrorResponseMessage(failed);
+                        this.updateCallReportComponent();
                     }
                 );
             }

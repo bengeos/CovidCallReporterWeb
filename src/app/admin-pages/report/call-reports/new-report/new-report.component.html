@@ -1,11 +1,11 @@
-<h1 mat-dialog-title>Update Call Report</h1>
+<h1 mat-dialog-title>Update Report</h1>
 <div mat-dialog-content>
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-6">
             <div>
                 <label>Person Information</label>
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-sm-6">
                         <div class="form-label-group">
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="Full Name" [(ngModel)]="new_call_report.full_name"
@@ -13,9 +13,9 @@
                             </mat-form-field>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <div class="form-label-group">
-                            <mat-form-field class="example-full-width">
+                            <mat-form-field class="example-full-width" disabled>
                                 <input matInput placeholder="Phone" [(ngModel)]="new_call_report.phone" name="phone">
                             </mat-form-field>
                         </div>
@@ -64,8 +64,7 @@
                     <div class="col-sm-5">
                         <div class="form-label-group">
                             <mat-form-field>
-                                <mat-select placeholder="Zone" [(ngModel)]="new_call_report.zone_id" name="zone_id"
-                                            disabled="{{new_call_report.region_id == null}}">
+                                <mat-select placeholder="Zone" [(ngModel)]="new_call_report.zone_id" name="zone_id">
                                     <mat-option *ngFor="let zone of zones" [value]="zone.id">
                                         {{zone.name}}
                                     </mat-option>
@@ -112,29 +111,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-5">
             <div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-label-group">
-                            <div class="form-label-group">
-                                <mat-form-field>
-                                    <mat-select placeholder="Report Type" [(ngModel)]="new_call_report.report_type"
-                                                name="other">
-                                        <mat-option *ngFor="let information of providedInfromation"
-                                                    [value]="information">{{information}}
-                                        </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-label-group">
                             <mat-form-field>
-                                <mat-select placeholder="Symptoms" [(ngModel)]="new_call_report.rumor_types" name="rumor_types" multiple>
-                                    <mat-option *ngFor="let rumorType of rummerTypes" [value]="rumorType">{{rumorType.name}}
+                                <mat-select placeholder="Report Type" [(ngModel)]="new_call_report.report_type"
+                                            name="other">
+                                    <mat-option *ngFor="let information of providedInfromation"
+                                                [value]="information">{{information}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -142,20 +127,57 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="form-label-group">
-                            <mat-form-field class="example-full-width">
-                                <textarea matInput type="text" placeholder="Description" rows="3" [(ngModel)]="new_call_report.description" name="description"></textarea>
+                            <mat-form-field>
+                                <mat-select placeholder="Rummer On Covid 19"
+                                            [(ngModel)]="new_call_report.call_rumor_types"
+                                            name="other" multiple>
+                                    <mat-option *ngFor="let call_rumor_type of new_call_report.call_rumor_types"
+                                                [value]="call_rumor_type">{{call_rumor_type.call_rumor_type.name}}
+                                    </mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </div>
                     </div>
+                  <div class="col-sm-12">
+                    <div class="form-label-group">
+                      <mat-form-field class="example-full-width">
+                        <textarea matInput type="text" placeholder="Description" rows="3" [(ngModel)]="new_call_report.description" name="description"></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <div style="margin: 20px">
+                <label>Assign This Report To</label>
+                <mat-radio-group
+                        aria-labelledby="example-radio-group-label"
+                        class="example-radio-group"
+                        [(ngModel)]="new_call_report.report_group_id">
+                  <mat-radio-button class="example-radio-button" *ngFor="let reportGroup of reportGroups" [value]="reportGroup.id">
+                    {{reportGroup.name}}
+                  </mat-radio-button>
+                </mat-radio-group>
+                <div class="form-label-group">
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput type="text" placeholder="Remark" rows="5" [(ngModel)]="new_call_report.remark_1" name="remark_1"></textarea>
+                  </mat-form-field>
+                </div>
+                <div class="form-label-group">
+                  <button mat-raised-button (click)="updateReport()" class="btn btn-primary pull-right">Update Report</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-</div>
-<br>
-<div class="form-label-group">
-    <button mat-raised-button (click)="updateCallReport()" class="btn btn-primary pull-right">Update Report</button>
-    <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
+    <br>
+    <div class="form-label-group">
+      <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
+    </div>
 </div>
 <div class="my-container">
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }"></ngx-loading>
