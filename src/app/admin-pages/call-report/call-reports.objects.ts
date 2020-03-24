@@ -1,7 +1,8 @@
 import {Region} from '../settings/regions/regions.objects';
 import {Zone} from '../settings/zones/zones.objects';
 import {Wereda} from '../settings/weredas/weredas.objects';
-import {City, Kebele, SubCity} from '../settings/Settings.Objects';
+import {Kebele, SubCity} from '../settings/Settings.Objects';
+import {City} from '../settings/cities/cities.object';
 /**
  * Created by BENGEOS on 3/21/20.
  */

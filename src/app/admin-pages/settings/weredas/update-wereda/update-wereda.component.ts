@@ -21,7 +21,7 @@ export class UpdateWeredaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.zonesService.getZonesList(this.updateWereda);
+    this.zonesService.getZonesList(this.updateWereda.selected_region);
     this.zonesService.ZonesListEmitter.subscribe(
         data => {
           this.zones = data;

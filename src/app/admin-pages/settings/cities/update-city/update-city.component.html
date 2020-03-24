@@ -1,32 +1,32 @@
-<h1 mat-dialog-title>Update Wereda</h1>
+<h1 mat-dialog-title>Update City</h1>
 <div mat-dialog-content>
   <div class="form-label-group">
     <mat-form-field>
-      <mat-select placeholder="Zone" [(ngModel)]="updateWereda.zone_id" name="region_id">
-        <mat-option *ngFor="let zone of zones" [value]="zone.id">
-          {{zone.name}}
+      <mat-select placeholder="Wereda" [(ngModel)]="updateCity.wereda_id" name="wereda_id">
+        <mat-option *ngFor="let wereda of weredas" [value]="wereda.id">
+          {{wereda.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Name" [(ngModel)]="updateWereda.name" name="name">
+      <input matInput placeholder="Name" [(ngModel)]="updateCity.name" name="name">
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Latitude" [(ngModel)]="updateWereda.latitude" name="latitude">
+      <input matInput placeholder="Latitude" [(ngModel)]="updateCity.latitude" name="latitude">
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Longitude" [(ngModel)]="updateWereda.longitude" name="longitude">
+      <input matInput placeholder="Longitude" [(ngModel)]="updateCity.longitude" name="longitude">
     </mat-form-field>
   </div>
   <br>
   <div class="form-label-group">
-    <button mat-raised-button (click)="updateWeredaDialog()" class="btn btn-primary pull-right">Update Wereda</button>
+    <button mat-raised-button (click)="updateCityDialog()" class="btn btn-primary pull-right">Update City</button>
     <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
   </div>
 </div>

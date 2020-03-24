@@ -5,8 +5,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpRequestsServiceService {
-  public root_url = 'https://api.covidfollowupportal.negarit.net/'; // PRODUCTION Server URL s
-  // public root_url = 'http://127.0.0.1:8000/'; // BENGEOS Local Server URL s
+  // public root_url = 'https://api.covidfollowupportal.negarit.net/'; // PRODUCTION Server URL s
+  public root_url = 'http://127.0.0.1:8000/'; // BENGEOS Local Server URL s
   public api_root_url = this.root_url + 'api/';
 
 

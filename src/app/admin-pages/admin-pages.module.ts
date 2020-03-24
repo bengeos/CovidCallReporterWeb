@@ -46,6 +46,9 @@ import { OthersTeamComponent } from './others-team/others-team.component';
 import { RapidCallResponseComponent } from './rapid-response/rapid-call-response/rapid-call-response.component';
 import { UpdateRapidCallResponseComponent } from './rapid-response/rapid-call-response/update-rapid-call-response/update-rapid-call-response.component';
 import { FollowupCallReportsComponent } from './follow-up/followup-call-reports/followup-call-reports.component';
+import { CitiesComponent } from './settings/cities/cities.component';
+import { NewCityComponent } from './settings/cities/new-city/new-city.component';
+import { UpdateCityComponent } from './settings/cities/update-city/update-city.component';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
@@ -53,10 +56,10 @@ import { FollowupCallReportsComponent } from './follow-up/followup-call-reports/
         WeredasComponent, NewRegionComponent, UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent,
         NewWeredaComponent, UpdateWeredaComponent, ReportComponent, UpdateCallReportComponent, RapidResponseComponent,
         FollowUpComponent, NewReportComponent, CallReportsComponent, CommunityReportsComponent, TravelerReportsComponent,
-        OthersTeamComponent, RapidCallResponseComponent, UpdateRapidCallResponseComponent, FollowupCallReportsComponent],
+        OthersTeamComponent, RapidCallResponseComponent, UpdateRapidCallResponseComponent, FollowupCallReportsComponent, CitiesComponent, NewCityComponent, UpdateCityComponent],
     entryComponents: [NewUserComponent, UpdateUserComponent, NewCallReportComponent, NewRegionComponent,
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
-        UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent],
+        UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent, NewCityComponent, UpdateCityComponent],
     imports: [
         CommonModule,
         AdminPagesRoutingModule,

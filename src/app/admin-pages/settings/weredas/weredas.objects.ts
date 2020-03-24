@@ -1,9 +1,12 @@
-import {Zone} from "../zones/zones.objects";
+import {Zone} from '../zones/zones.objects';
+import {Region} from '../regions/regions.objects';
 /**
  * Created by BENGEOS on 3/22/20.
  */
 export class Wereda {
     public id: number;
+    public selected_region_id: number;
+    public selected_region: Region;
     public zone_id: number;
     public zone: Zone;
     public name: string;

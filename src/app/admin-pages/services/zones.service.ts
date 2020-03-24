@@ -2,7 +2,7 @@ import {EventEmitter, Injectable, Input} from '@angular/core';
 import {PaginatedZones, Zone} from '../settings/zones/zones.objects';
 import {HttpRequestsServiceService} from '../../services/http-requests-service.service';
 import {AuthServicesService} from '../../services/auth-services.service';
-import {Region} from "../settings/regions/regions.objects";
+import {Region} from '../settings/regions/regions.objects';
 
 @Injectable({
     providedIn: 'root'

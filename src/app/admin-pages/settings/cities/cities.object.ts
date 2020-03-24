@@ -1,13 +1,12 @@
-/**
- * Created by BENGEOS on 3/22/20.
- */
-import {City} from "./cities/cities.object";
+import {Wereda} from "../weredas/weredas.objects";
+import {Zone} from "../zones/zones.objects";
 
-
-export class SubCity {
+export class City {
     public id: number;
-    public city_id: number;
-    public city: City;
+    public selected_zone_id: number;
+    public selected_zone: Zone;
+    public wereda_id: number;
+    public wereda: Wereda;
     public name: string;
     public latitude: string;
     public longitude: string;
@@ -21,27 +20,8 @@ export class SubCity {
     }
 }
 
-export class Kebele {
-    public id: number;
-    public sub_city_id: number;
-    public subCity: SubCity;
-    public name: string;
-    public latitude: string;
-    public longitude: string;
-    public description: string;
-    constructor() {
-        this.id = null;
-        this.name = '';
-        this.latitude = '';
-        this.longitude = '';
-        this.description = '';
-    }
-}
-
-
-
-export class PaginatedSubCities {
-    public data: SubCity[];
+export class PaginatedCities {
+    public data: City[];
     public first_page_url: string;
     public last_page_url: string;
     public next_page_url: string;

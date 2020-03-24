@@ -11,9 +11,10 @@
       </div>
       <div class="row">
         <div class="col-sm-6">
-          <app-weredas [selectedZone]="selectedZone"></app-weredas>
+          <app-weredas [selectedZone]="selectedZone" (selectWereda)="onSelectWereda($event)"></app-weredas>
         </div>
         <div class="col-sm-6">
+          <app-cities [selectedWereda]="selectedWereda"></app-cities>
         </div>
       </div>
     </div>

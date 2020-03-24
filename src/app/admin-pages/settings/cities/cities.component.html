@@ -2,15 +2,15 @@
   <div class="card-header card-header-tabs card-header-primary">
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
-        <span class="nav-tabs-title">Wereda`s
+        <span class="nav-tabs-title">Cities`s
             <a mat-button class="btn btn-default">
-              {{selectedZone.name}}
+              {{selectedWereda.name}}
             </a>
         </span>
         <ul class="nav nav-tabs pull-right" data-tabs="tabs">
           <li class="nav-item pull-right">
-            <a mat-button class="nav-link active" (click)="addNewWereda()">
-              <i class="material-icons">person</i> New Wereda
+            <a mat-button class="nav-link active" (click)="addNewCity()">
+              <i class="material-icons">person</i> New City
               <div class="ripple-container"></div>
             </a>
           </li>
@@ -20,10 +20,10 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <mat-paginator [length]="paginatedWereda.total"
-                     [pageSize]="paginatedWereda.per_page"
+      <mat-paginator [length]="paginatedCities.total"
+                     [pageSize]="paginatedCities.per_page"
                      [pageSizeOptions]="pageSizeOptions"
-                     (page)="updatePaginatedWeredaData($event)" showFirstLastButtons>
+                     (page)="updatePaginatedCitiesData($event)" showFirstLastButtons>
       </mat-paginator>
       <table class="table">
         <thead class=" text-primary">
@@ -35,21 +35,21 @@
         <th> </th>
         </thead>
         <tbody>
-        <tr *ngFor="let wereda of paginatedWereda.data; let i = index">
-          <td> {{paginatedWereda.from + i}} </td>
-          <td (click)="onSelectWereda(wereda)"> {{wereda.name}} </td>
-          <td> {{wereda.zone.name}} </td>
-          <td> {{wereda.name}} </td>
-          <td> {{wereda.latitude}} </td>
-          <td> {{wereda.longitude}} </td>
+        <tr *ngFor="let city of paginatedCities.data; let i = index">
+          <td> {{paginatedCities.from + i}} </td>
+          <td (click)="onSelectCity(city)"> {{city.name}} </td>
+          <td> {{city.wereda.name}} </td>
+          <td> {{city.name}} </td>
+          <td> {{city.latitude}} </td>
+          <td> {{city.longitude}} </td>
           <td class="td-actions">
             <button mat-raised-button type="button" matTooltip="Edit"
-                    [matTooltipPosition]="'above'" (click)="updateWereda(wereda)"
+                    [matTooltipPosition]="'above'" (click)="updateCity(city)"
                     class="btn btn-danger btn-link btn-sm btn-just-icon">
               <i class="material-icons">edit</i>
             </button>
             <button mat-raised-button type="button" matTooltip="Remove"
-                    [matTooltipPosition]="'above'" (click)="deleteWereda(wereda)"
+                    [matTooltipPosition]="'above'" (click)="deleteCity(city)"
                     class="btn btn-danger btn-link btn-sm btn-just-icon">
               <i class="material-icons">close</i>
             </button>
@@ -57,10 +57,10 @@
         </tr>
         </tbody>
       </table>
-      <mat-paginator [length]="paginatedWereda.total"
-                     [pageSize]="paginatedWereda.per_page"
+      <mat-paginator [length]="paginatedCities.total"
+                     [pageSize]="paginatedCities.per_page"
                      [pageSizeOptions]="pageSizeOptions"
-                     (page)="updatePaginatedWeredaData($event)" showFirstLastButtons>
+                     (page)="updatePaginatedCitiesData($event)" showFirstLastButtons>
       </mat-paginator>
     </div>
   </div>

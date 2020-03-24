@@ -1,79 +1,79 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {Zone} from '../zones/zones.objects';
-import {PaginatedWeredas, Wereda} from './weredas.objects';
-import swal from 'sweetalert2';
-import {WeredasService} from '../../services/weredas.service';
-import {MatDialog, MatDialogConfig} from '@angular/material';
+import {Wereda} from '../weredas/weredas.objects';
 import {SwalMessagesService} from '../../services/swal-messages.service';
-import {NewWeredaComponent} from './new-wereda/new-wereda.component';
-import {UpdateWeredaComponent} from './update-wereda/update-wereda.component';
+import swal from 'sweetalert2';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {City, PaginatedCities} from './cities.object';
+import {CitiesService} from '../../services/cities.service';
+import {NewCityComponent} from './new-city/new-city.component';
+import {UpdateCityComponent} from './update-city/update-city.component';
 
 @Component({
-    selector: 'app-weredas',
-    templateUrl: './weredas.component.html',
-    styleUrls: ['./weredas.component.scss']
+    selector: 'app-cities',
+    templateUrl: './cities.component.html',
+    styleUrls: ['./cities.component.scss']
 })
-export class WeredasComponent implements OnInit, OnChanges {
-    @Input() selectedZone: Zone = new Zone();
-    @Output() selectWereda = new EventEmitter<any>();
-    public paginatedWereda = new PaginatedWeredas();
+export class CitiesComponent implements OnInit, OnChanges {
+    @Input() selectedWereda: Wereda = new Wereda();
+    @Output() selectCity = new EventEmitter<any>();
+    public paginatedCities = new PaginatedCities();
     public pageSizeOptions: number[] = [5, 10, 15, 25, 50, 100, 500];
     public loading = false;
 
-    constructor(private zoneServices: WeredasService, private dialog: MatDialog, private responseMessageService: SwalMessagesService) {
+    constructor(private citiesServices: CitiesService, private dialog: MatDialog, private responseMessageService: SwalMessagesService) {
     }
 
     ngOnInit() {
         this.updateWeredasComponent();
-        this.zoneServices.PaginatedWeredasEmitter.subscribe(
+        this.citiesServices.PaginatedCitiesEmitter.subscribe(
             data => {
-                this.paginatedWereda = data
+                this.paginatedCities = data
             }
         );
     }
 
     ngOnChanges(changedData) {
         console.log('DATA: ', changedData);
-        if (changedData.selectedZone.currentValue) {
-            this.zoneServices.getPaginatedWeredas(this.selectedZone);
+        if (changedData.selectedWereda.currentValue) {
+            this.citiesServices.getPaginatedCities(this.selectedWereda);
         }
     }
 
-    public onSelectWereda(wereda) {
-        this.selectWereda.emit(wereda);
+    public onSelectCity(city) {
+        this.selectCity.emit(city);
     }
 
     public updateWeredasComponent() {
-        this.zoneServices.getPaginatedWeredas(this.selectedZone);
+        this.citiesServices.getPaginatedCities(this.selectedWereda);
     }
 
-    public updatePaginatedWeredaData(event: any) {
+    public updatePaginatedCitiesData(event: any) {
         this.loading = true;
         const page_num = event.pageIndex + 1;
         const paginate_size = event.pageSize;
-        this.zoneServices.getPaginatedWeredasData(this.paginatedWereda.path + '?page='
+        this.citiesServices.getPaginatedCitiesData(this.paginatedCities.path + '?page='
             + page_num + '&PAGINATE_SIZE=' + paginate_size);
     }
 
-    public addNewWereda(): void {
-        const newWereda = new Wereda();
-        newWereda.selected_region = this.selectedZone.region;
-        newWereda.selected_region_id = this.selectedZone.region.id;
-        newWereda.zone_id = this.selectedZone.id;
-        newWereda.zone = this.selectedZone;
+    public addNewCity(): void {
+        const newCity = new City();
+        newCity.selected_zone_id = this.selectedWereda.zone_id;
+        newCity.selected_zone = this.selectedWereda.zone;
+        newCity.wereda_id = this.selectedWereda.id;
+        newCity.wereda = this.selectedWereda;
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;
         dialogConfig.width = '800px';
-        dialogConfig.data = newWereda;
-        const dialogRef = this.dialog.open(NewWeredaComponent, dialogConfig);
+        dialogConfig.data = newCity;
+        const dialogRef = this.dialog.open(NewCityComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.loading = true;
-                this.zoneServices.addNewWereda(result).subscribe(
+                this.citiesServices.addNewCity(result).subscribe(
                     succes => {
                         this.loading = false;
-                        this.responseMessageService.showNotification(2, 'top', 'right', 'Wereda Added Successfully');
+                        this.responseMessageService.showNotification(2, 'top', 'right', 'City Added Successfully');
                         this.updateWeredasComponent();
                     },
                     failed => {
@@ -85,22 +85,22 @@ export class WeredasComponent implements OnInit, OnChanges {
         });
     }
 
-    public updateWereda(data: Wereda): void {
-        data.selected_region = this.selectedZone.region;
-        data.selected_region_id = this.selectedZone.region.id;
+    public updateCity(data: City): void {
+        data.selected_zone_id = this.selectedWereda.zone_id;
+        data.selected_zone = this.selectedWereda.zone;
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;
         dialogConfig.width = '800px';
         dialogConfig.data = data;
-        const dialogRef = this.dialog.open(UpdateWeredaComponent, dialogConfig);
+        const dialogRef = this.dialog.open(UpdateCityComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.loading = true;
-                this.zoneServices.updateWereda(result).subscribe(
+                this.citiesServices.updateCity(result).subscribe(
                     succes => {
                         this.loading = false;
-                        this.responseMessageService.showNotification(2, 'top', 'right', 'Wereda Updated Successfully');
+                        this.responseMessageService.showNotification(2, 'top', 'right', 'City Updated Successfully');
                         this.updateWeredasComponent();
                     },
                     failed => {
@@ -112,10 +112,10 @@ export class WeredasComponent implements OnInit, OnChanges {
         });
     }
 
-    public deleteWereda(data: Wereda) {
+    public deleteCity(data: City) {
         swal({
                 title: 'Are you sure?',
-                text: 'Your will not be able to recover this Wereda',
+                text: 'Your will not be able to recover this city',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55', confirmButtonText: 'Yes, delete it!',
@@ -124,9 +124,9 @@ export class WeredasComponent implements OnInit, OnChanges {
         ).then((result) => {
             if (result.value) {
                 this.loading = true;
-                this.zoneServices.deleteWereda(data).subscribe(
+                this.citiesServices.deleteCity(data).subscribe(
                     succes => {
-                        this.responseMessageService.showNotification(4, 'top', 'right', 'Wereda Deleted Successfully');
+                        this.responseMessageService.showNotification(4, 'top', 'right', 'city Deleted Successfully');
                         this.updateWeredasComponent();
                     },
                     failed => {
