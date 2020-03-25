@@ -24,6 +24,13 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-label-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Other Phone" [(ngModel)]="new_call_report.second_phone" name="second_phone">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-label-group">
                             <mat-form-field>
                                 <mat-select placeholder="Gender" [(ngModel)]="new_call_report.gender" name="gender">
                                     <mat-option *ngFor="let gender of genders" [value]="gender">
@@ -65,7 +72,6 @@
                         <div class="form-label-group">
                             <mat-form-field>
                                 <mat-select placeholder="Zone" [(ngModel)]="new_call_report.zone_id" name="zone_id"
-                                            disabled="{{new_call_report.region_id == null}}"
                                             (selectionChange)="onZoneChanges($event)">
                                     <mat-option *ngFor="let zone of zones" [value]="zone.id">
                                         {{zone.name}}
@@ -80,7 +86,7 @@
                         <div class="form-label-group">
                             <mat-form-field>
                                 <mat-select placeholder="Wereda" [(ngModel)]="new_call_report.wereda_id"
-                                            name="wereda_id" disabled="{{new_call_report.zone_id == null}}"
+                                            name="wereda_id"
                                             (selectionChange)="onWeredaChanges($event)">
                                     <mat-option *ngFor="let wereda of weredas" [value]="wereda.id">
                                         {{wereda.name}}
@@ -93,7 +99,6 @@
                         <div class="form-label-group">
                             <mat-form-field>
                                 <mat-select placeholder="City" [(ngModel)]="new_call_report.city_id" name="city_id"
-                                            disabled="{{new_call_report.wereda_id == null}}"
                                             (selectionChange)="onCityChanges($event)">
                                     <mat-option *ngFor="let city of cities" [value]="city.id">
                                         {{city.name}}
@@ -106,7 +111,7 @@
                         <div class="form-label-group">
                             <mat-form-field>
                                 <mat-select placeholder="SubCity" [(ngModel)]="new_call_report.sub_city_id"
-                                            name="sub_city_id" disabled="{{new_call_report.city_id == null}}"
+                                            name="sub_city_id"
                                             (selectionChange)="onSubCityChanges($event)">
                                     <mat-option *ngFor="let subCity of subCities" [value]="subCity.id">
                                         {{subCity.name}}

@@ -3,7 +3,8 @@ import {HttpRequestsServiceService} from '../../services/http-requests-service.s
 import {AuthServicesService} from '../../services/auth-services.service';
 import {Zone} from '../settings/zones/zones.objects';
 import {City, PaginatedCities} from '../settings/cities/cities.object';
-import {Wereda} from "../settings/weredas/weredas.objects";
+import {Wereda} from '../settings/weredas/weredas.objects';
+import {Region} from '../settings/regions/regions.objects';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,17 @@ export class CitiesService {
             },
         );
   }
+    public getCitiesListByRegion(region: Region) {
+        return this.httpService.sendGetRequest('cities_by_region/' + region.id, this.authService.getUserToken())
+            .subscribe(
+                data => {
+                    this.processGetCitiesList(data);
+                },
+                error => {
+                    console.log(error);
+                },
+            );
+    }
 
   private processGetCitiesList(result) {
     if (result && result.status && result.result) {

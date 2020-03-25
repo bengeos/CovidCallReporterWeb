@@ -6,14 +6,14 @@ import {ZonesService} from '../../services/zones.service';
 import {Zone} from '../../settings/zones/zones.objects';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {CallReportsService} from '../../services/call-reports.service';
-import {MatSelectChange} from "@angular/material/select";
-import {WeredasService} from "../../services/weredas.service";
-import {Wereda} from "../../settings/weredas/weredas.objects";
-import {City} from "../../settings/cities/cities.object";
-import {SubCity} from "../../settings/sub-cities/sub-cities.object";
-import {CitiesService} from "../../services/cities.service";
-import {SubCitiesService} from "../../services/sub-cities.service";
-import {Kebele} from "../../settings/Settings.Objects";
+import {MatSelectChange} from '@angular/material/select';
+import {WeredasService} from '../../services/weredas.service';
+import {Wereda} from '../../settings/weredas/weredas.objects';
+import {City} from '../../settings/cities/cities.object';
+import {SubCity} from '../../settings/sub-cities/sub-cities.object';
+import {CitiesService} from '../../services/cities.service';
+import {SubCitiesService} from '../../services/sub-cities.service';
+import {Kebele} from '../../settings/Settings.Objects';
 
 @Component({
     selector: 'app-new-call-report',
@@ -85,6 +85,7 @@ export class NewCallReportComponent implements OnInit, OnChanges {
         const selectedRegion = new Region();
         selectedRegion.id = this.new_call_report.region_id;
         this.zonesService.getZonesList(selectedRegion);
+        this.citiesService.getCitiesListByRegion(selectedRegion);
         this.new_call_report.zone_id = null;
         this.new_call_report.wereda_id = null;
         this.new_call_report.city_id = null;

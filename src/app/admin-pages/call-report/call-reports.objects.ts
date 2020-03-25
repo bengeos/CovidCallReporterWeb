@@ -23,6 +23,7 @@ export class CallReport {
     public kebele: Kebele;
     public age: number;
     public phone: string;
+    public second_phone: string;
     public full_name: string;
     public occupation: number;
     public other: string;
@@ -34,7 +35,6 @@ export class CallReport {
     public report_type: string;
     public node: any;
     public rumor_types: RumorType[];
-    public call_rumor_types: CallRumorType[];
     public report_group_id: number;
     public description: string;
     public remark_1: string;
