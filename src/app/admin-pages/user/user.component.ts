@@ -94,7 +94,6 @@ export class UserComponent implements OnInit {
     }
 
     public changeUserStatus(user: User) {
-        user.is_active = !user.is_active;
         swal({
                 title: 'Are you sure?',
                 text: 'You are changing user status?',
