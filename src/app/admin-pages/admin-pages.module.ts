@@ -36,19 +36,22 @@ import {NewWeredaComponent} from './settings/weredas/new-wereda/new-wereda.compo
 import {UpdateWeredaComponent} from './settings/weredas/update-wereda/update-wereda.component';
 import {ReportComponent} from './report/report.component';
 import {UpdateCallReportComponent} from './call-report/update-call-report/update-call-report.component';
-import { RapidResponseComponent } from './rapid-response/rapid-response.component';
-import { FollowUpComponent } from './follow-up/follow-up.component';
-import { NewReportComponent } from './report/call-reports/new-report/new-report.component';
-import { CallReportsComponent } from './report/call-reports/call-reports.component';
-import { CommunityReportsComponent } from './report/community-reports/community-reports.component';
-import { TravelerReportsComponent } from './report/traveler-reports/traveler-reports.component';
-import { OthersTeamComponent } from './others-team/others-team.component';
-import { RapidCallResponseComponent } from './rapid-response/rapid-call-response/rapid-call-response.component';
-import { UpdateRapidCallResponseComponent } from './rapid-response/rapid-call-response/update-rapid-call-response/update-rapid-call-response.component';
-import { FollowupCallReportsComponent } from './follow-up/followup-call-reports/followup-call-reports.component';
-import { CitiesComponent } from './settings/cities/cities.component';
-import { NewCityComponent } from './settings/cities/new-city/new-city.component';
-import { UpdateCityComponent } from './settings/cities/update-city/update-city.component';
+import {RapidResponseComponent} from './rapid-response/rapid-response.component';
+import {FollowUpComponent} from './follow-up/follow-up.component';
+import {NewReportComponent} from './report/call-reports/new-report/new-report.component';
+import {CallReportsComponent} from './report/call-reports/call-reports.component';
+import {CommunityReportsComponent} from './report/community-reports/community-reports.component';
+import {TravelerReportsComponent} from './report/traveler-reports/traveler-reports.component';
+import {OthersTeamComponent} from './others-team/others-team.component';
+import {RapidCallResponseComponent} from './rapid-response/rapid-call-response/rapid-call-response.component';
+import {UpdateRapidCallResponseComponent} from './rapid-response/rapid-call-response/update-rapid-call-response/update-rapid-call-response.component';
+import {FollowupCallReportsComponent} from './follow-up/followup-call-reports/followup-call-reports.component';
+import {CitiesComponent} from './settings/cities/cities.component';
+import {NewCityComponent} from './settings/cities/new-city/new-city.component';
+import {UpdateCityComponent} from './settings/cities/update-city/update-city.component';
+import {SubCitiesComponent} from './settings/sub-cities/sub-cities.component';
+import {NewSubCityComponent} from './settings/sub-cities/new-sub-city/new-sub-city.component';
+import {UpdateSubCityComponent} from './settings/sub-cities/update-sub-city/update-sub-city.component';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
@@ -56,10 +59,12 @@ import { UpdateCityComponent } from './settings/cities/update-city/update-city.c
         WeredasComponent, NewRegionComponent, UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent,
         NewWeredaComponent, UpdateWeredaComponent, ReportComponent, UpdateCallReportComponent, RapidResponseComponent,
         FollowUpComponent, NewReportComponent, CallReportsComponent, CommunityReportsComponent, TravelerReportsComponent,
-        OthersTeamComponent, RapidCallResponseComponent, UpdateRapidCallResponseComponent, FollowupCallReportsComponent, CitiesComponent, NewCityComponent, UpdateCityComponent],
+        OthersTeamComponent, RapidCallResponseComponent, UpdateRapidCallResponseComponent, FollowupCallReportsComponent,
+        CitiesComponent, NewCityComponent, UpdateCityComponent, SubCitiesComponent, NewSubCityComponent, UpdateSubCityComponent],
     entryComponents: [NewUserComponent, UpdateUserComponent, NewCallReportComponent, NewRegionComponent,
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
-        UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent, NewCityComponent, UpdateCityComponent],
+        UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent, NewCityComponent,
+        UpdateCityComponent, NewSubCityComponent, UpdateSubCityComponent],
     imports: [
         CommonModule,
         AdminPagesRoutingModule,

@@ -2,15 +2,15 @@
   <div class="card-header card-header-tabs card-header-primary">
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
-        <span class="nav-tabs-title">Cities`s Of
+        <span class="nav-tabs-title">SubCities`s Of
             <a mat-button class="btn btn-default">
-              {{selectedWereda.name}}
+              {{selectedCity.name}}
             </a>
         </span>
         <ul class="nav nav-tabs pull-right" data-tabs="tabs">
           <li class="nav-item pull-right">
-            <a mat-button class="nav-link active" (click)="addNewCity()">
-              <i class="material-icons">person</i> New City
+            <a mat-button class="nav-link active" (click)="addNewSubCity()">
+              <i class="material-icons">person</i> New SubCity
               <div class="ripple-container"></div>
             </a>
           </li>
@@ -20,10 +20,10 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <mat-paginator [length]="paginatedCities.total"
-                     [pageSize]="paginatedCities.per_page"
+      <mat-paginator [length]="paginatedSubCities.total"
+                     [pageSize]="paginatedSubCities.per_page"
                      [pageSizeOptions]="pageSizeOptions"
-                     (page)="updatePaginatedCitiesData($event)" showFirstLastButtons>
+                     (page)="updatePaginatedSubCitiesData($event)" showFirstLastButtons>
       </mat-paginator>
       <table class="table">
         <thead class=" text-primary">
@@ -35,20 +35,20 @@
         <th> </th>
         </thead>
         <tbody>
-        <tr *ngFor="let city of paginatedCities.data; let i = index">
-          <td> {{paginatedCities.from + i}} </td>
-          <td (click)="onSelectCity(city)"> {{city.name}} </td>
-          <td> {{city.wereda.name}} </td>
-          <td> {{city.latitude}} </td>
-          <td> {{city.longitude}} </td>
+        <tr *ngFor="let subCity of paginatedSubCities.data; let i = index">
+          <td> {{paginatedSubCities.from + i}} </td>
+          <td (click)="onSelectSubCity(subCity)"> {{subCity.name}} </td>
+          <td> {{subCity.city.name}} </td>
+          <td> {{subCity.latitude}} </td>
+          <td> {{subCity.longitude}} </td>
           <td class="td-actions">
             <button mat-raised-button type="button" matTooltip="Edit"
-                    [matTooltipPosition]="'above'" (click)="updateCity(city)"
+                    [matTooltipPosition]="'above'" (click)="updateSubCity(subCity)"
                     class="btn btn-danger btn-link btn-sm btn-just-icon">
               <i class="material-icons">edit</i>
             </button>
             <button mat-raised-button type="button" matTooltip="Remove"
-                    [matTooltipPosition]="'above'" (click)="deleteCity(city)"
+                    [matTooltipPosition]="'above'" (click)="deleteSubCity(subCity)"
                     class="btn btn-danger btn-link btn-sm btn-just-icon">
               <i class="material-icons">close</i>
             </button>
@@ -56,10 +56,10 @@
         </tr>
         </tbody>
       </table>
-      <mat-paginator [length]="paginatedCities.total"
-                     [pageSize]="paginatedCities.per_page"
+      <mat-paginator [length]="paginatedSubCities.total"
+                     [pageSize]="paginatedSubCities.per_page"
                      [pageSizeOptions]="pageSizeOptions"
-                     (page)="updatePaginatedCitiesData($event)" showFirstLastButtons>
+                     (page)="updatePaginatedSubCitiesData($event)" showFirstLastButtons>
       </mat-paginator>
     </div>
   </div>

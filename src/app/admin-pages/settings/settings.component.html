@@ -14,7 +14,14 @@
           <app-weredas [selectedZone]="selectedZone" (selectWereda)="onSelectWereda($event)"></app-weredas>
         </div>
         <div class="col-sm-6">
-          <app-cities [selectedWereda]="selectedWereda"></app-cities>
+          <app-cities [selectedWereda]="selectedWereda" (selectCity)="onSelectCity($event)"></app-cities>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <app-sub-cities [selectedCity]="selectedCity" (selectSubCity)="onSelectSubCity($event)"></app-sub-cities>
+        </div>
+        <div class="col-sm-6">
         </div>
       </div>
     </div>

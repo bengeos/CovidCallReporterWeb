@@ -2,7 +2,7 @@
   <div class="card-header card-header-tabs card-header-primary">
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
-        <span class="nav-tabs-title">Wereda`s
+        <span class="nav-tabs-title">Wereda`s Of
             <a mat-button class="btn btn-default">
               {{selectedZone.name}}
             </a>
@@ -28,8 +28,8 @@
       <table class="table">
         <thead class=" text-primary">
         <th> ID </th>
+        <th> Wereda </th>
         <th> Zone </th>
-        <th> Region </th>
         <th> Latitude </th>
         <th> Longitude </th>
         <th> </th>
@@ -39,7 +39,6 @@
           <td> {{paginatedWereda.from + i}} </td>
           <td (click)="onSelectWereda(wereda)"> {{wereda.name}} </td>
           <td> {{wereda.zone.name}} </td>
-          <td> {{wereda.name}} </td>
           <td> {{wereda.latitude}} </td>
           <td> {{wereda.longitude}} </td>
           <td class="td-actions">
