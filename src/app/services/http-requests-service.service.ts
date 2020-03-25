@@ -6,7 +6,8 @@ import {environment} from '../../environments/environment.prod';
   providedIn: 'root'
 })
 export class HttpRequestsServiceService {
-  public root_url = environment.root_url; // PRODUCTION Server URL s
+  // public root_url = environment.apiUrl; // PRODUCTION Server URL s
+  public root_url = 'https://api.covidfollowupportal.negarit.net/'; // BENGEOS Local Server URL s
   // public root_url = 'http://127.0.0.1:8000/'; // BENGEOS Local Server URL s
   public api_root_url = this.root_url + 'api/';
 

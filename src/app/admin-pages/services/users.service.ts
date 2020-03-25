@@ -70,6 +70,10 @@ export class UsersService {
         return this.httpService.sendPatchRequest('user', new_user, this.authService.getUserToken());
     }
 
+    public updateUserStatus(new_user: User) {
+        return this.httpService.sendPatchRequest('user_status', new_user, this.authService.getUserToken());
+    }
+
     public deleteUser(new_user: User) {
         return this.httpService.sendDeleteRequest('user/' + new_user.id, this.authService.getUserToken());
     }

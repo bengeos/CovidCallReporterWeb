@@ -31,6 +31,7 @@
                 <th> Full Name </th>
                 <th> Email </th>
                 <th> Role </th>
+                <th> Status </th>
                 <th> Updated By </th>
                 <th> Created At </th>
                 <th> </th>
@@ -42,6 +43,9 @@
                   <td> {{user.email}} </td>
                   <td> {{user.role.name}} </td>
                   <td> {{user.full_name}} </td>
+                  <td>
+                    <mat-checkbox class="example-margin text-primary" [(ngModel)]="user.is_active" (click)="changeUserStatus(user)"></mat-checkbox>
+                  </td>
                   <td class="text-primary"> {{user.created_at | date: 'short'}} </td>
                   <td class="td-actions">
                     <button mat-raised-button type="button" matTooltip="Edit"

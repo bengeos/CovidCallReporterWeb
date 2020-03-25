@@ -25,7 +25,7 @@
                     <div class="col-sm-4">
                         <div class="form-label-group">
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Other Phone" [(ngModel)]="new_call_report.second_phone" name="second_phone">
+                                <input matInput placeholder="Reporter Phone" [(ngModel)]="new_call_report.second_phone" name="second_phone">
                             </mat-form-field>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                         <div class="form-label-group">
                             <div class="form-label-group">
                                 <mat-form-field>
-                                    <mat-select placeholder="Report Type" [(ngModel)]="new_call_report.report_type"
+                                    <mat-select placeholder="Called For" [(ngModel)]="new_call_report.report_type"
                                                 name="other">
                                         <mat-option *ngFor="let information of providedInfromation"
                                                     [value]="information">{{information}}
