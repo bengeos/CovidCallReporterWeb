@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Zone} from '../zones.objects';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ZonesService} from '../../../services/zones.service';
 import {RegionsService} from '../../../services/regions.service';
+import {Region} from "../../regions/regions.objects";
 
 @Component({
   selector: 'app-update-zone',
@@ -11,18 +11,24 @@ import {RegionsService} from '../../../services/regions.service';
 })
 export class UpdateZoneComponent implements OnInit {
   public updateZone = new Zone();
+  public regions: Region[] = [];
   public loading = false;
 
   constructor(public dialogRef: MatDialogRef<UpdateZoneComponent>, @Inject(MAT_DIALOG_DATA) new_data: Zone,
-              private regionService: RegionsService, private zonesService: ZonesService) {
+              private regionService: RegionsService) {
     this.updateZone = new_data;
   }
 
   ngOnInit() {
-
+    this.regionService.getRegionsList();
+    this.regionService.RegionsListEmitter.subscribe(
+        data => {
+          this.regions = data;
+        }
+    );
   }
 
-  public updateRegionDialog() {
+  public updateZoneDialog() {
     this.dialogRef.close(this.updateZone);
   }
 

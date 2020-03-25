@@ -88,6 +88,7 @@ export class ZonesComponent implements OnInit, OnChanges {
         dialogConfig.autoFocus = true;
         dialogConfig.width = '800px';
         dialogConfig.data = data;
+        console.log('UPDATE-ZOE', data);
         const dialogRef = this.dialog.open(UpdateZoneComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
