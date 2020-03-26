@@ -57,10 +57,12 @@ export class CitiesComponent implements OnInit, OnChanges {
 
     public addNewCity(): void {
         const newCity = new City();
-        newCity.selected_zone_id = this.selectedWereda.zone_id;
-        newCity.selected_zone = this.selectedWereda.zone;
-        newCity.wereda_id = this.selectedWereda.id;
-        newCity.wereda = this.selectedWereda;
+        if (this.selectedWereda) {
+            newCity.selected_zone_id = this.selectedWereda.zone.id;
+            newCity.selected_zone = this.selectedWereda.zone;
+            newCity.wereda_id = this.selectedWereda.id;
+            newCity.wereda = this.selectedWereda;
+        }
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;

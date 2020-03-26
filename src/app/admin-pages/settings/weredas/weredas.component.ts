@@ -57,10 +57,12 @@ export class WeredasComponent implements OnInit, OnChanges {
 
     public addNewWereda(): void {
         const newWereda = new Wereda();
-        newWereda.selected_region = this.selectedZone.region;
-        newWereda.selected_region_id = this.selectedZone.region.id;
-        newWereda.zone_id = this.selectedZone.id;
-        newWereda.zone = this.selectedZone;
+        if (this.selectedZone) {
+            newWereda.selected_region = this.selectedZone.region;
+            newWereda.selected_region_id = this.selectedZone.region.id;
+            newWereda.zone_id = this.selectedZone.id;
+            newWereda.zone = this.selectedZone;
+        }
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = false;
         dialogConfig.autoFocus = true;
