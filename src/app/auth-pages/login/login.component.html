@@ -11,9 +11,7 @@
     </div>
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Welcome To <br>COVID.19 Response Portal</h1>
-      <p>COVID.19 Reporting Portal</p>
     </div>
-
     <div class="form-label-group">
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Email" [(ngModel)]="new_login_user.email" name="user_email">
@@ -26,9 +24,8 @@
     </div>
     <a [routerLink]="['/auth/get-reset-code']">Forgot your password?</a>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <div class="mt-5 mb-3 text-muted text-center"><a href="http://negarit.net">Powered By Negarit</a> <br> © 2019-2020</div>
+    <div class="mt-5 mb-3 text-muted text-center"><a href="https://negarit.net">Powered By Negarit</a> <br> © 2019-2020</div>
   </form>
 </div>
-
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>
 
