@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {CallReport, ReportGroup} from '../../../call-report/call-reports.objects';
+import {CallReport, ReportGroup, RumorType} from '../../../call-report/call-reports.objects';
 import {Region} from '../../../settings/regions/regions.objects';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {CallReportsService} from '../../../services/call-reports.service';
@@ -31,6 +31,7 @@ export class NewReportComponent implements OnInit {
     public genders = ['MALE', 'FEMALE'];
     public providedInfromation: string[] = ['Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment', 'Ethiopian'];
     public reportGroups: ReportGroup[] = [];
+    public rummerTypes: RumorType[] = [];
     public loading = false;
 
     constructor(public dialogRef: MatDialogRef<NewReportComponent>, @Inject(MAT_DIALOG_DATA) new_data: CallReport,

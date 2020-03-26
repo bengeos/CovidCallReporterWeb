@@ -2,31 +2,31 @@
 <div mat-dialog-content>
   <div class="form-label-group">
     <mat-form-field>
-      <mat-select placeholder="Wereda" [(ngModel)]="updateCity.wereda_id" name="wereda_id">
-        <mat-option *ngFor="let wereda of weredas" [value]="wereda.id">
-          {{wereda.name}}
+      <mat-select placeholder="Wereda" [(ngModel)]="updateSubCity.city_id" name="city_id">
+        <mat-option *ngFor="let city of cities" [value]="city.id">
+          {{city.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Name" [(ngModel)]="updateCity.name" name="name">
+      <input matInput placeholder="Name" [(ngModel)]="updateSubCity.name" name="name">
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Latitude" [(ngModel)]="updateCity.latitude" name="latitude">
+      <input matInput placeholder="Latitude" [(ngModel)]="updateSubCity.latitude" name="latitude">
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Longitude" [(ngModel)]="updateCity.longitude" name="longitude">
+      <input matInput placeholder="Longitude" [(ngModel)]="updateSubCity.longitude" name="longitude">
     </mat-form-field>
   </div>
   <br>
   <div class="form-label-group">
-    <button mat-raised-button (click)="updateCityDialog()" class="btn btn-primary pull-right">Update City</button>
+    <button mat-raised-button (click)="updateSubCityDialog()" class="btn btn-primary pull-right">Update SubCity</button>
     <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
   </div>
 </div>

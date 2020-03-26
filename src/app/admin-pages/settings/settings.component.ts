@@ -16,6 +16,7 @@ export class SettingsComponent implements OnInit {
     public selectedWereda = new Wereda();
     public selectedCity = new City();
     public selectedSubCity = new SubCity();
+    public loading = false;
 
     constructor() {
     }

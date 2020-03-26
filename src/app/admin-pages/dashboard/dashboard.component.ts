@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DashboardCountData, MessagesHistory} from "./dashboard.objects";
+import {DashboardCountData, MessagesHistory} from './dashboard.objects';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,4 +16,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  public moveDailyMessageHistory(id) {
+
+  }
 }
