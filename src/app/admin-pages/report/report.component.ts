@@ -22,7 +22,7 @@ export class ReportComponent implements OnInit {
 
     ngOnInit() {
         this.loading = true;
-        this.callReportsService.getPaginatedCallReports();
+        this.callReportsService.getNewCallReports();
         this.callReportsService.PaginatedCallReportEmitter.subscribe(
             data => {
                 this.paginated_call_report = data;

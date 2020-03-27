@@ -29,7 +29,7 @@ export class UpdateCallReportComponent implements OnInit {
     public subCities: SubCity[] = [];
     public kebeles: Kebele[] = [];
     public genders = ['MALE', 'FEMALE'];
-    public providedInfromation: string[] = ['Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment', 'Ethiopian'];
+    public providedInfromation: string[] = ['Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment'];
     public rummerTypes: RumorType[] = [];
     public callRumorTypes: CallRumorType[] = [];
     public loading = false;
@@ -43,7 +43,7 @@ export class UpdateCallReportComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.callReportService.getCallRumorTypes();
+        this.callReportService.getRumorTypes();
         this.callReportService.CallRumorTypesListEmitter.subscribe(
             data => {
                 this.rummerTypes = data;

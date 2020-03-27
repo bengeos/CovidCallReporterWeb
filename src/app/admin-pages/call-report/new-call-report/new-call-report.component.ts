@@ -30,7 +30,7 @@ export class NewCallReportComponent implements OnInit, OnChanges {
     public kebeles: Kebele[] = [];
     public genders = ['MALE', 'FEMALE'];
     public favoriteSeason = '';
-    public providedInfromation: string[] = ['Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment', 'Ethiopian'];
+    public providedInfromation: string[] = ['Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment'];
     public toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
     public rummerTypes: RumorType[] = [];
     public loading = false;
@@ -69,7 +69,7 @@ export class NewCallReportComponent implements OnInit, OnChanges {
                 this.subCities = data
             }
         );
-        this.callReportService.getCallRumorTypes();
+        this.callReportService.getRumorTypes();
         this.callReportService.CallRumorTypesListEmitter.subscribe(
             data => {
                 this.rummerTypes = data;

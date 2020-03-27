@@ -41,7 +41,7 @@ export class CallReportComponent implements OnInit {
     }
 
     public updateCallReportComponent() {
-        this.callReportsService.getPaginatedCallReportsByUser();
+        this.callReportsService.getCallReportsOfUser();
         this.regionsService.getRegionsList();
     }
 

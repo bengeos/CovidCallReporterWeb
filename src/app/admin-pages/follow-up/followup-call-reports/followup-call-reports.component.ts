@@ -64,7 +64,7 @@ export class FollowupCallReportsComponent implements OnInit, OnChanges {
             if (result) {
                 console.log('NEW-Report', result);
                 this.loading = true;
-                this.callReportsService.updateCallReportStatus(result).subscribe(
+                this.callReportsService.updateCallReportGroup(result).subscribe(
                     succes => {
                         this.loading = false;
                         this.responseMessageService.showNotification(2, 'top', 'right', 'Report Updated Successfully');

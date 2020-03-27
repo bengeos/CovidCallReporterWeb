@@ -38,9 +38,9 @@ export class CallReportsComponent implements OnInit, OnChanges {
     public updateCallReportsComponent() {
         this.loading = true;
         if (this.allCallReports) {
-            this.callReportsService.getAllPaginatedCallReports();
+            this.callReportsService.getAllCallReports();
         } else {
-            this.callReportsService.getPaginatedCallReports();
+            this.callReportsService.getNewCallReports();
         }
     }
 
@@ -63,7 +63,7 @@ export class CallReportsComponent implements OnInit, OnChanges {
             if (result) {
                 console.log('NEW-Report', result);
                 this.loading = true;
-                this.callReportsService.updateCallReportStatus(result).subscribe(
+                this.callReportsService.updateCallReportGroup(result).subscribe(
                     succes => {
                         this.loading = false;
                         this.responseMessageService.showNotification(2, 'top', 'right', 'Report Updated Successfully');

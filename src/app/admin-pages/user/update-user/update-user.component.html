@@ -10,6 +10,20 @@
       <input matInput placeholder="Email" [(ngModel)]="update_user.email" name="email">
     </mat-form-field>
   </div>
+  <div class="form-label-group" *ngIf="is_super_admin">
+    <mat-form-field>
+      <mat-select placeholder="Region" [(ngModel)]="update_user.region_id" name="region_id">
+        <mat-option *ngFor="let region of region_list" [value]="region.id">
+          {{region.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-label-group" *ngIf="is_super_admin">
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Call Center Name" [(ngModel)]="update_user.call_center" name="call_center">
+    </mat-form-field>
+  </div>
   <div class="form-label-group">
     <mat-form-field>
       <mat-select placeholder="Role" [(ngModel)]="update_user.role_id" name="role_id">

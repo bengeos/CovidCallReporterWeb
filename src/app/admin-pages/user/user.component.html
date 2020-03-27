@@ -30,6 +30,8 @@
                                 <th> ID</th>
                                 <th> Full Name</th>
                                 <th> Email</th>
+                                <th> Region</th>
+                                <th> Call Center</th>
                                 <th> Role</th>
                                 <th> Status</th>
                                 <th> Updated By</th>
@@ -41,6 +43,8 @@
                                     <td> {{paginated_users.from + i}} </td>
                                     <td> {{user.full_name}} </td>
                                     <td> {{user.email}} </td>
+                                    <td> {{user.region.name}} </td>
+                                    <td> {{user.call_center}} </td>
                                     <td> {{user.role.name}} </td>
                                     <td>
                                         <mat-checkbox class="example-margin text-primary" [(ngModel)]="user.is_active"

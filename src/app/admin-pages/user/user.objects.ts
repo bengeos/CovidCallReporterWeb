@@ -1,13 +1,18 @@
 /**
  * Created by BENGEOS on 3/20/20.
  */
+import {Region} from "../settings/regions/regions.objects";
+
 export class User {
     public id: number;
+    public region: Region;
+    public region_id: number;
     public role_id: number;
     public full_name: string;
     public email: string;
     public phone: string;
     public password: string;
+    public call_center: string;
     public is_active: boolean;
     public role: Role;
     public created_by: User;

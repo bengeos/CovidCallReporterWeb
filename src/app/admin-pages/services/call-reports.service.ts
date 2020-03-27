@@ -17,8 +17,8 @@ export class CallReportsService {
     constructor(private httpService: HttpRequestsServiceService, private authService: AuthServicesService) {
     }
 
-    public getCallRumorTypes() {
-        return this.httpService.sendGetRequest('call_rumor_types', this.authService.getUserToken())
+    public getRumorTypes() {
+        return this.httpService.sendGetRequest('rumor_types', this.authService.getUserToken())
             .subscribe(
                 data => {
                     this.processGetRumorTypesList(data);
@@ -53,8 +53,8 @@ export class CallReportsService {
         }
     }
 
-    public getPaginatedCallReportsByUser() {
-        return this.httpService.sendGetRequest('call_reports_paginated_by_user', this.authService.getUserToken())
+    public getCallReportsOfUser() {
+        return this.httpService.sendGetRequest('call_reports_of_user', this.authService.getUserToken())
             .subscribe(
                 data => {
                     this.processGetPaginatedCallReports(data);
@@ -65,8 +65,8 @@ export class CallReportsService {
             );
     }
 
-    public getPaginatedCallReports() {
-        return this.httpService.sendGetRequest('new_call_reports_paginated', this.authService.getUserToken())
+    public getNewCallReports() {
+        return this.httpService.sendGetRequest('new_call_reports', this.authService.getUserToken())
             .subscribe(
                 data => {
                     this.processGetPaginatedCallReports(data);
@@ -76,8 +76,8 @@ export class CallReportsService {
                 },
             );
     }
-    public getAllPaginatedCallReports() {
-        return this.httpService.sendGetRequest('all_call_reports_paginated', this.authService.getUserToken())
+    public getAllCallReports() {
+        return this.httpService.sendGetRequest('all_call_reports', this.authService.getUserToken())
             .subscribe(
                 data => {
                     this.processGetPaginatedCallReports(data);
@@ -87,8 +87,8 @@ export class CallReportsService {
                 },
             );
     }
-    public getNewPaginatedNewRapidCallReports() {
-        return this.httpService.sendGetRequest('all_rapid_call_reports_paginated', this.authService.getUserToken())
+    public getAssignedRapidCallReports() {
+        return this.httpService.sendGetRequest('get_assigned_rapid_call_reports', this.authService.getUserToken())
             .subscribe(
                 data => {
                     this.processGetPaginatedRapidCallReports(data);
@@ -98,8 +98,8 @@ export class CallReportsService {
                 },
             );
     }
-    public getAllPaginatedNewRapidCallReports() {
-        return this.httpService.sendGetRequest('all_rapid_call_reports_paginated', this.authService.getUserToken())
+    public getNewRapidCallReports() {
+        return this.httpService.sendGetRequest('get_new_rapid_call_reports', this.authService.getUserToken())
             .subscribe(
                 data => {
                     this.processGetPaginatedRapidCallReports(data);
@@ -159,8 +159,8 @@ export class CallReportsService {
         return this.httpService.sendPatchRequest('call_report', newCallReport, this.authService.getUserToken());
     }
 
-    public updateCallReportStatus(newCallReport: CallReport) {
-        return this.httpService.sendPatchRequest('call_report_status', newCallReport, this.authService.getUserToken());
+    public updateCallReportGroup(newCallReport: CallReport) {
+        return this.httpService.sendPatchRequest('update_call_report', newCallReport, this.authService.getUserToken());
     }
 
     public deleteCallReport(newCallReport: CallReport) {
