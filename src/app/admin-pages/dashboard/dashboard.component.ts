@@ -15,6 +15,16 @@ export class DashboardComponent implements OnInit {
     public message_history_ref_day = 0;
     public loading = false;
 
+    latitude = 9.1450005;
+    longitude = 40.4896736;
+    mapType = 'roadmap';
+    // mapType = 'satellite';
+    selectedMarker;
+    markers = [
+        { lat: 3.415066, lng: 32.982453, alpha: 1 },
+        { lat: 14.910734 , lng: 47.977049, alpha: 1 },
+
+    ];
     constructor(private dashboardsServices: DashboardsService) {
     }
 
@@ -40,6 +50,23 @@ export class DashboardComponent implements OnInit {
         );
     }
 
+    addMarker(lat: number, lng: number) {
+        this.markers.push({ lat, lng, alpha: 0.4 });
+    }
+    max(coordType: 'lat' | 'lng'): number {
+        return Math.max(...this.markers.map(marker => marker[coordType]));
+    }
+
+    min(coordType: 'lat' | 'lng'): number {
+        return Math.min(...this.markers.map(marker => marker[coordType]));
+    }
+
+    selectMarker(event) {
+        this.selectedMarker = {
+            lat: event.latitude,
+            lng: event.longitude
+        };
+    }
     public moveDailyMessageHistory(num: number) {
       this.loading = true;
       this.message_history_ref_day = this.message_history_ref_day + num;

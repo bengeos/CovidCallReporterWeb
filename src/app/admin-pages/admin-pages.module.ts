@@ -52,6 +52,7 @@ import {UpdateCityComponent} from './settings/cities/update-city/update-city.com
 import {SubCitiesComponent} from './settings/sub-cities/sub-cities.component';
 import {NewSubCityComponent} from './settings/sub-cities/new-sub-city/new-sub-city.component';
 import {UpdateSubCityComponent} from './settings/sub-cities/update-sub-city/update-sub-city.component';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
@@ -96,6 +97,10 @@ import {UpdateSubCityComponent} from './settings/sub-cities/update-sub-city/upda
         MatStepperModule,
         MatSortModule,
         NgxLoadingModule.forRoot({}),
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBviqiT6mmllA04MXdsP7APHNLxx27koug'
+
+        })
     ]
 })
 export class AdminPagesModule {

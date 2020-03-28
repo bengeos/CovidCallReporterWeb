@@ -102,6 +102,53 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-info">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Map Reports:</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="call_reports">
+                <agm-map [latitude]='latitude' [longitude]='longitude'  [maxZoom]="10"   [minZoom]="6" (mapClick)="addMarker($event.coords.lat, $event.coords.lng)" [mapTypeId]='mapType'>
+                  <agm-marker [latitude]='latitude'
+                              [longitude]='longitude'
+                              *ngFor="let marker of markers"
+                              [latitude]="marker.lat"
+                              [longitude]="marker.lng"
+                              [opacity]="marker.alpha"
+                              [markerDraggable]="true"
+                              (markerClick)="selectMarker($event)">
+
+                  </agm-marker>
+                  <agm-rectangle
+
+                          [north]="max('lat')"
+                          [east]="max('lng')"
+                          [south]="min('lat')"
+                          [west]="min('lng')" >
+
+                  </agm-rectangle>
+                </agm-map>
+                <p *ngIf="selectedMarker">
+                  Lat: {{ selectedMarker.lat }} Lng: {{ selectedMarker.lng }}
+                </p>
+              </div>
+              <div class="tab-pane" id="community_reports">
+              </div>
+              <div class="tab-pane" id="health_institute_reports">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="card">
@@ -163,6 +210,28 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 </div>
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>
+
+
+
+  <!--<h2>Title Map</h2>-->
+  <!--<agm-map [latitude]='latitude' [longitude]='longitude' >-->
+    <!--<agm-marker [latitude]='latitude' [longitude]='longitude' ></agm-marker>-->
+  <!--</agm-map>-->
