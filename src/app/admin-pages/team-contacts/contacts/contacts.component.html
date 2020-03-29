@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <br>
+        <div class="card-header card-header-tabs card-header-success">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <span class="nav-tabs-title">Contacts Filter:</span>
+                    <ul class="nav nav-tabs pull-right" data-tabs="tabs">
+                        <li class="nav-item pull-right">
+                            <a mat-button class="nav-link active" (click)="addNewTeamContact()">
+                                <i class="material-icons">access_time</i> New Contact
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                            <a mat-button class="nav-link active" (click)="getAllContacts()" data-toggle="tab">
+                                <i class="material-icons">bug_report</i> All Contacts
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a mat-button class="nav-link" (click)="filterContacts()" data-toggle="tab">
+                                <i class="material-icons">code</i> Filter Contacts
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <label *ngIf="selectedTeam.name">
+                <button mat-raised-button type="button" matTooltip="Selected Team" color="default"
+                        [matTooltipPosition]="'above'">{{selectedTeam.name}} --> Contact List
+                </button>
+            </label>
+            <label *ngIf="!selectedTeam.name">All Contact List</label>
+            <div class="table-responsive">
+                <mat-paginator [length]="paginatedTeamContacts.total"
+                               [pageSize]="paginatedTeamContacts.per_page"
+                               [pageSizeOptions]="pageSizeOptions"
+                               (page)="updateTeamContactsPagination($event)">
+                </mat-paginator>
+                <table class="table">
+                    <thead class=" text-primary">
+                    <th> No</th>
+                    <th> Full Name</th>
+                    <th> Phone</th>
+                    <th> Email</th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let contact of paginatedTeamContacts.data; let i = index">
+                        <td>{{paginatedTeamContacts.from + i}}</td>
+                        <td>{{contact.contact ? contact.contact.full_name : ''}}</td>
+                        <td>{{contact.contact ? contact.contact.phone : ''}}</td>
+                        <td>{{contact.contact ? contact.contact.email : ''}}</td>
+                        <td class="td-actions">
+                            <button mat-raised-button type="button" matTooltip="Edit"
+                                    [matTooltipPosition]="'above'" (click)="updateTeamContact(contact)"
+                                    class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button mat-raised-button type="button" matTooltip="Remove"
+                                    [matTooltipPosition]="'above'" (click)="deleteTeamContact(contact)"
+                                    class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [length]="paginatedTeamContacts.total"
+                               [pageSize]="paginatedTeamContacts.per_page"
+                               [pageSizeOptions]="pageSizeOptions"
+                               (page)="updateTeamContactsPagination($event)">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

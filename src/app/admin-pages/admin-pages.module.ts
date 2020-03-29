@@ -52,6 +52,13 @@ import {UpdateCityComponent} from './settings/cities/update-city/update-city.com
 import {SubCitiesComponent} from './settings/sub-cities/sub-cities.component';
 import {NewSubCityComponent} from './settings/sub-cities/new-sub-city/new-sub-city.component';
 import {UpdateSubCityComponent} from './settings/sub-cities/update-sub-city/update-sub-city.component';
+import {TeamContactsComponent} from './team-contacts/team-contacts.component';
+import {TeamsComponent} from './team-contacts/teams/teams.component';
+import {ContactsComponent} from './team-contacts/contacts/contacts.component';
+import {NewTeamComponent} from './team-contacts/teams/new-team/new-team.component';
+import {UpdateTeamComponent} from './team-contacts/teams/update-team/update-team.component';
+import {NewContactComponent} from './team-contacts/contacts/new-contact/new-contact.component';
+import {UpdateContactComponent} from './team-contacts/contacts/update-contact/update-contact.component';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
@@ -60,11 +67,14 @@ import {UpdateSubCityComponent} from './settings/sub-cities/update-sub-city/upda
         NewWeredaComponent, UpdateWeredaComponent, ReportComponent, UpdateCallReportComponent, RapidResponseComponent,
         FollowUpComponent, NewReportComponent, CallReportsComponent, CommunityReportsComponent, TravelerReportsComponent,
         OthersTeamComponent, RapidCallResponseComponent, UpdateRapidCallResponseComponent, FollowupCallReportsComponent,
-        CitiesComponent, NewCityComponent, UpdateCityComponent, SubCitiesComponent, NewSubCityComponent, UpdateSubCityComponent],
+        CitiesComponent, NewCityComponent, UpdateCityComponent, SubCitiesComponent, NewSubCityComponent, UpdateSubCityComponent,
+        TeamContactsComponent, TeamsComponent, ContactsComponent, NewTeamComponent, UpdateTeamComponent, NewContactComponent,
+        UpdateContactComponent],
     entryComponents: [NewUserComponent, UpdateUserComponent, NewCallReportComponent, NewRegionComponent,
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
         UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent, NewCityComponent,
-        UpdateCityComponent, NewSubCityComponent, UpdateSubCityComponent],
+        UpdateCityComponent, NewSubCityComponent, UpdateSubCityComponent, NewContactComponent, UpdateContactComponent,
+        NewTeamComponent, UpdateTeamComponent],
     imports: [
         CommonModule,
         AdminPagesRoutingModule,

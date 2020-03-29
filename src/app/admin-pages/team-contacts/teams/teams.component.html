@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <br>
+    <button mat-raised-button (click)="addNewTeam()" class="btn btn-primary ">Add New Team</button>
+    <div class="card-body" style="border: solid darkgray">
+      <label>Team List</label>
+      <div class="table-responsive">
+        <mat-paginator [length]="paginatedTeams.total"
+                       [pageSize]="paginatedTeams.per_page"
+                       [pageSizeOptions]="pageSizeOptions"
+                       (page)="updateTeamsData($event)">
+        </mat-paginator>
+        <table class="table">
+          <thead class=" text-primary">
+          <th> No</th>
+          <th> Group Name</th>
+          <th> Created By</th>
+          <th></th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let team of paginatedTeams.data; let i = index">
+            <td>{{paginatedTeams.from + i}}</td>
+            <!--<td (click)="selectContactGroup(contactGroup)"><strong>{{contactGroup.name}}</strong></td>-->
+            <td (click)="selectTeam(team)">
+              <button mat-raised-button type="button" matTooltip="Contact Group" color="default"
+                      [matTooltipPosition]="'above'">{{team.name}}</button>
+            </td>
+            <td class="text-primary"> {{team.created_by.full_name}} </td>
+            <td class="td-actions">
+              <button mat-raised-button type="button" matTooltip="Edit"
+                      [matTooltipPosition]="'above'" (click)="updateTeam(team)"
+                      class="btn btn-danger btn-link btn-sm btn-just-icon">
+                <i class="material-icons">edit</i>
+              </button>
+              <button mat-raised-button type="button" matTooltip="Remove"
+                      [matTooltipPosition]="'above'" (click)="deleteTeam(team)"
+                      class="btn btn-danger btn-link btn-sm btn-just-icon">
+                <i class="material-icons">close</i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <mat-paginator [length]="paginatedTeams.total"
+                       [pageSize]="paginatedTeams.per_page"
+                       [pageSizeOptions]="pageSizeOptions"
+                       (page)="updateTeamsData($event)">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

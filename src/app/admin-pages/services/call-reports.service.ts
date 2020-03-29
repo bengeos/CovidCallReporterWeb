@@ -111,7 +111,19 @@ export class CallReportsService {
     }
 
     public getPaginatedNewFollowupCallReports() {
-        return this.httpService.sendGetRequest('new_followup_call_reports_paginated', this.authService.getUserToken())
+        return this.httpService.sendGetRequest('new_followup_call_reports', this.authService.getUserToken())
+            .subscribe(
+                data => {
+                    this.processGetPaginatedFollowupCallReports(data);
+                },
+                error => {
+                    console.log(error);
+                },
+            );
+    }
+
+    public getPaginatedOldFollowupCallReports() {
+        return this.httpService.sendGetRequest('old_followup_call_reports', this.authService.getUserToken())
             .subscribe(
                 data => {
                     this.processGetPaginatedFollowupCallReports(data);

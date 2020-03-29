@@ -12,6 +12,7 @@ export const ROUTES: RouteInfo[] = [
     {path: '/admin/dashboards', title: 'Dashboards', icon: 'dashboard', class: ''},
     {path: '/admin/call_reports', title: 'Call Report', icon: 'dialer_sip', class: ''},
     {path: '/admin/reports', title: 'Reports', icon: 'assignment', class: ''},
+    {path: '/admin/team_contacts', title: 'Team', icon: 'group', class: ''},
     {path: '/admin/rapid_response', title: 'Rapid Response', icon: 'flight_takeoff', class: ''},
     {path: '/admin/followups', title: 'Followup', icon: 'device_hub', class: ''},
     // {path: '/admin/others', title: 'Others Team', icon: 'flight_takeoff', class: ''},
