@@ -4,6 +4,8 @@ import {Wereda} from '../settings/weredas/weredas.objects';
 import {Kebele} from '../settings/Settings.Objects';
 import {City} from '../settings/cities/cities.object';
 import {SubCity} from "../settings/sub-cities/sub-cities.object";
+import {User} from "../user/user.objects";
+
 /**
  * Created by BENGEOS on 3/21/20.
  */
@@ -52,6 +54,7 @@ export class RumorType {
     public id: number;
     public name: string;
     public description: string;
+
     constructor() {
         this.id = null;
         this.name = '';
@@ -64,6 +67,7 @@ export class CallRumorType {
     public call_report_id: number;
     public call_rumor_type_id: number;
     public call_rumor_type: RumorType;
+
     constructor() {
         this.id = null;
     }
@@ -72,6 +76,7 @@ export class CallRumorType {
 export class ReportGroup {
     public id: number;
     public name: string;
+
     constructor() {
         this.id = null;
         this.name = '';
@@ -106,4 +111,13 @@ export class PaginatedCallReport {
         this.from = 0;
         this.to = 0;
     }
+}
+
+export class AssignedCallReport {
+    public id: number;
+    public call_report_id: number;
+    public contact_group_id: number;
+    public assignment_type: string;
+    public message: string;
+    public created_by: User;
 }

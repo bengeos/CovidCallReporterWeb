@@ -1,13 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
 import {AdminPagesRoutingModule} from './admin-pages-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserComponent} from './user/user.component';
 import {NewUserComponent} from './user/new-user/new-user.component';
 import {UpdateUserComponent} from './user/update-user/update-user.component';
-import {ComponentsModule} from "../components/components.module";
-import {FormsModule} from "@angular/forms";
+import {ComponentsModule} from '../components/components.module';
+import {FormsModule} from '@angular/forms';
 import {
     MatBadgeModule,
     MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatDividerModule,
@@ -19,8 +18,8 @@ import {
     MatRippleModule,
     MatSelectModule, MatSortModule, MatStepperModule, MatTabsModule,
     MatTooltipModule
-} from "@angular/material";
-import {NgxLoadingModule} from "ngx-loading";
+} from '@angular/material';
+import {NgxLoadingModule} from 'ngx-loading';
 import {CallReportComponent} from './call-report/call-report.component';
 import {ReportCategorizerComponent} from './report-categorizer/report-categorizer.component';
 import {NewCallReportComponent} from './call-report/new-call-report/new-call-report.component';
@@ -59,6 +58,8 @@ import {NewTeamComponent} from './team-contacts/teams/new-team/new-team.componen
 import {UpdateTeamComponent} from './team-contacts/teams/update-team/update-team.component';
 import {NewContactComponent} from './team-contacts/contacts/new-contact/new-contact.component';
 import {UpdateContactComponent} from './team-contacts/contacts/update-contact/update-contact.component';
+import {AssignFollowupReportComponent} from './follow-up/followup-call-reports/assign-followup-report/assign-followup-report.component';
+import {UpdateAssignedFollowupReportComponent} from './follow-up/followup-call-reports/update-assigned-followup-report/update-assigned-followup-report.component';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
@@ -69,12 +70,14 @@ import {UpdateContactComponent} from './team-contacts/contacts/update-contact/up
         OthersTeamComponent, RapidCallResponseComponent, UpdateRapidCallResponseComponent, FollowupCallReportsComponent,
         CitiesComponent, NewCityComponent, UpdateCityComponent, SubCitiesComponent, NewSubCityComponent, UpdateSubCityComponent,
         TeamContactsComponent, TeamsComponent, ContactsComponent, NewTeamComponent, UpdateTeamComponent, NewContactComponent,
-        UpdateContactComponent],
+        UpdateContactComponent,
+        AssignFollowupReportComponent,
+        UpdateAssignedFollowupReportComponent],
     entryComponents: [NewUserComponent, UpdateUserComponent, NewCallReportComponent, NewRegionComponent,
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
         UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent, NewCityComponent,
         UpdateCityComponent, NewSubCityComponent, UpdateSubCityComponent, NewContactComponent, UpdateContactComponent,
-        NewTeamComponent, UpdateTeamComponent],
+        NewTeamComponent, UpdateTeamComponent, AssignFollowupReportComponent, UpdateAssignedFollowupReportComponent],
     imports: [
         CommonModule,
         AdminPagesRoutingModule,

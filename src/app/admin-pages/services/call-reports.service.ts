@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {CallReport, PaginatedCallReport, RumorType} from '../call-report/call-reports.objects';
+import {AssignedCallReport, CallReport, PaginatedCallReport, RumorType} from '../call-report/call-reports.objects';
 import {AuthServicesService} from '../../services/auth-services.service';
 import {HttpRequestsServiceService} from '../../services/http-requests-service.service';
 
@@ -76,6 +76,7 @@ export class CallReportsService {
                 },
             );
     }
+
     public getAllCallReports() {
         return this.httpService.sendGetRequest('all_call_reports', this.authService.getUserToken())
             .subscribe(
@@ -87,6 +88,7 @@ export class CallReportsService {
                 },
             );
     }
+
     public getAssignedRapidCallReports() {
         return this.httpService.sendGetRequest('get_assigned_rapid_call_reports', this.authService.getUserToken())
             .subscribe(
@@ -98,6 +100,7 @@ export class CallReportsService {
                 },
             );
     }
+
     public getNewRapidCallReports() {
         return this.httpService.sendGetRequest('get_new_rapid_call_reports', this.authService.getUserToken())
             .subscribe(
@@ -122,7 +125,7 @@ export class CallReportsService {
             );
     }
 
-    public getPaginatedOldFollowupCallReports() {
+    public getAssignedFollowupCallReports() {
         return this.httpService.sendGetRequest('old_followup_call_reports', this.authService.getUserToken())
             .subscribe(
                 data => {
@@ -157,6 +160,7 @@ export class CallReportsService {
             this.PaginatedRapidCallReportEmitter.emit(result.result);
         }
     }
+
     private processGetPaginatedFollowupCallReports(result) {
         if (result && result.status && result.result) {
             this.PaginatedFollowupCallReportEmitter.emit(result.result);
@@ -177,5 +181,9 @@ export class CallReportsService {
 
     public deleteCallReport(newCallReport: CallReport) {
         return this.httpService.sendDeleteRequest('call_report/' + newCallReport.id, this.authService.getUserToken());
+    }
+
+    public assignCallReportForFollowupTeam(newAssignedCallReport: AssignedCallReport) {
+        return this.httpService.sendPostRequest('assign_followup_call_reports', newAssignedCallReport, this.authService.getUserToken());
     }
 }

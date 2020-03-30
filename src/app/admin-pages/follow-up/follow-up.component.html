@@ -4,28 +4,56 @@
       <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation pull-right">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Reports In Followup:</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <a mat-button class="nav-link" href="#all_call_reports" data-toggle="tab"
+                       (click)="changeReports(true)">
+                      <i class="material-icons">ring_volume</i> All Toll Free
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a mat-button class="nav-link" href="#all_community" data-toggle="tab"
+                       (click)="changeReports(true)">
+                      <i class="material-icons">supervisor_account</i> Community
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a mat-button class="nav-link" href="#all_travelers" data-toggle="tab"
+                       (click)="changeReports(true)">
+                      <i class="material-icons">local_hospital</i> Medical
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
-                <span class="nav-tabs-title">Reports:</span>
+                <span class="nav-tabs-title">New Reports FOr Followup:</span>
                 <ul class="nav nav-tabs" data-tabs="tabs">
                   <li class="nav-item">
                     <a mat-button class="nav-link active" href="#new_call_reports" data-toggle="tab"
                        (click)="changeReports(false)">
-                      <i class="material-icons">bug_report</i> Toll Free
+                      <i class="material-icons">ring_volume</i> Toll Free
                       <div class="ripple-container"></div>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a mat-button class="nav-link" href="#new_community" data-toggle="tab"
                        (click)="changeReports(false)">
-                      <i class="material-icons">code</i> Community
+                      <i class="material-icons">supervisor_account</i> Community
                       <div class="ripple-container"></div>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a mat-button class="nav-link" href="#new_travelers" data-toggle="tab"
                        (click)="changeReports(false)">
-                      <i class="material-icons">cloud</i> Medical
+                      <i class="material-icons">local_hospital</i> Medical
                       <div class="ripple-container"></div>
                     </a>
                   </li>
@@ -43,6 +71,15 @@
                 <app-community-reports></app-community-reports>
               </div>
               <div class="tab-pane" id="new_travelers">
+                <app-traveler-reports></app-traveler-reports>
+              </div>
+              <div class="tab-pane" id="all_call_reports">
+                <app-followup-call-reports [allCallReports]="allCallReports"></app-followup-call-reports>
+              </div>
+              <div class="tab-pane" id="all_community">
+                <app-community-reports></app-community-reports>
+              </div>
+              <div class="tab-pane" id="all_travelers">
                 <app-traveler-reports></app-traveler-reports>
               </div>
             </div>

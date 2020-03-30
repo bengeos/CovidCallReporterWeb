@@ -4,6 +4,8 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {SwalMessagesService} from '../../services/swal-messages.service';
 import {CallReportsService} from '../../services/call-reports.service';
 import {UpdateRapidCallResponseComponent} from '../../rapid-response/rapid-call-response/update-rapid-call-response/update-rapid-call-response.component';
+import {AssignFollowupReportComponent} from "./assign-followup-report/assign-followup-report.component";
+import {UpdateAssignedFollowupReportComponent} from "./update-assigned-followup-report/update-assigned-followup-report.component";
 
 @Component({
     selector: 'app-followup-call-reports',
@@ -11,7 +13,6 @@ import {UpdateRapidCallResponseComponent} from '../../rapid-response/rapid-call-
     styleUrls: ['./followup-call-reports.component.scss']
 })
 export class FollowupCallReportsComponent implements OnInit, OnChanges {
-
     @Input() allCallReports;
     public paginated_call_report = new PaginatedCallReport();
     public pageSizeOptions: number[] = [5, 10, 15, 25, 50, 100, 500, 1000];
@@ -39,7 +40,7 @@ export class FollowupCallReportsComponent implements OnInit, OnChanges {
     public updateCallReportsComponent() {
         this.loading = true;
         if (this.allCallReports) {
-            this.callReportsService.getPaginatedNewFollowupCallReports();
+            this.callReportsService.getAssignedFollowupCallReports();
         } else {
             this.callReportsService.getPaginatedNewFollowupCallReports();
         }
@@ -77,6 +78,41 @@ export class FollowupCallReportsComponent implements OnInit, OnChanges {
                 );
             }
         });
+    }
+
+    public assignFollowupReport(report: CallReport) {
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = false;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '800px';
+        dialogConfig.data = report;
+        if (this.allCallReports) {
+            const dialogRef = this.dialog.open(UpdateAssignedFollowupReportComponent, dialogConfig);
+            dialogRef.afterClosed().subscribe(result => {
+                if (result) {
+                    console.log('Update Assigned-Report', result);
+                }
+            });
+        } else {
+            const dialogRef = this.dialog.open(AssignFollowupReportComponent, dialogConfig);
+            dialogRef.afterClosed().subscribe(result => {
+                if (result) {
+                    console.log('Assign-Report', result);
+                    this.loading = true;
+                    this.callReportsService.assignCallReportForFollowupTeam(result).subscribe(
+                        succes => {
+                            this.loading = false;
+                            this.responseMessageService.showNotification(2, 'top', 'right', 'Call-Report Assigned Successfully');
+                            this.updateCallReportsComponent();
+                        },
+                        failed => {
+                            this.loading = false;
+                            this.responseMessageService.displayErrorResponseMessage(failed);
+                        }
+                    );
+                }
+            });
+        }
     }
 
 }
