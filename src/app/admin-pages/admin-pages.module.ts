@@ -60,6 +60,7 @@ import {NewContactComponent} from './team-contacts/contacts/new-contact/new-cont
 import {UpdateContactComponent} from './team-contacts/contacts/update-contact/update-contact.component';
 import {AssignFollowupReportComponent} from './follow-up/followup-call-reports/assign-followup-report/assign-followup-report.component';
 import {UpdateAssignedFollowupReportComponent} from './follow-up/followup-call-reports/update-assigned-followup-report/update-assigned-followup-report.component';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
@@ -109,6 +110,10 @@ import {UpdateAssignedFollowupReportComponent} from './follow-up/followup-call-r
         MatStepperModule,
         MatSortModule,
         NgxLoadingModule.forRoot({}),
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBviqiT6mmllA04MXdsP7APHNLxx27koug'
+
+        })
     ]
 })
 export class AdminPagesModule {
