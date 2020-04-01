@@ -143,7 +143,7 @@
                     <div class="col-sm-12">
                         <div class="form-label-group">
                             <mat-form-field>
-                                <mat-select placeholder="Rumor On Covid19" [(ngModel)]="new_call_report.rumor_types" name="rumor_types" multiple>
+                                <mat-select placeholder="Symptoms" [(ngModel)]="new_call_report.rumor_types" name="rumor_types" multiple>
                                     <mat-option *ngFor="let rumorType of rummerTypes" [value]="rumorType">{{rumorType.name}}
                                     </mat-option>
                                 </mat-select>
