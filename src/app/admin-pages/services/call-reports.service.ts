@@ -186,4 +186,8 @@ export class CallReportsService {
     public assignCallReportForFollowupTeam(newAssignedCallReport: AssignedCallReport) {
         return this.httpService.sendPostRequest('assign_followup_call_reports', newAssignedCallReport, this.authService.getUserToken());
     }
+
+    public assignCallReportForRapidResponseTeam(newAssignedCallReport: AssignedCallReport) {
+        return this.httpService.sendPostRequest('assign_rapid_response_call_reports', newAssignedCallReport, this.authService.getUserToken());
+    }
 }

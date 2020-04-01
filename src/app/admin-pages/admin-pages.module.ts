@@ -61,6 +61,7 @@ import {UpdateContactComponent} from './team-contacts/contacts/update-contact/up
 import {AssignFollowupReportComponent} from './follow-up/followup-call-reports/assign-followup-report/assign-followup-report.component';
 import {UpdateAssignedFollowupReportComponent} from './follow-up/followup-call-reports/update-assigned-followup-report/update-assigned-followup-report.component';
 import {AgmCoreModule} from '@agm/core';
+import { AssignRapidResponseComponent } from './rapid-response/rapid-call-response/assign-rapid-response/assign-rapid-response.component';
 
 @NgModule({
     declarations: [DashboardComponent, UserComponent, NewUserComponent, UpdateUserComponent, CallReportComponent,
@@ -73,7 +74,8 @@ import {AgmCoreModule} from '@agm/core';
         TeamContactsComponent, TeamsComponent, ContactsComponent, NewTeamComponent, UpdateTeamComponent, NewContactComponent,
         UpdateContactComponent,
         AssignFollowupReportComponent,
-        UpdateAssignedFollowupReportComponent],
+        UpdateAssignedFollowupReportComponent,
+        AssignRapidResponseComponent],
     entryComponents: [NewUserComponent, UpdateUserComponent, NewCallReportComponent, NewRegionComponent,
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
         UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent, NewCityComponent,
