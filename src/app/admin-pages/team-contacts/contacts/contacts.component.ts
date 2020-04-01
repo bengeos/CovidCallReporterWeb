@@ -27,6 +27,7 @@ export class ContactsComponent implements OnInit, OnChanges {
         this.teamContactsService.PaginatedTeamContactsEmitter.subscribe(
             data => {
                 this.paginatedTeamContacts = data;
+                this.loading = false;
             }
         );
     }

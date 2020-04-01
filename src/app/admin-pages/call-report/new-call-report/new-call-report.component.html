@@ -60,7 +60,6 @@
                             <mat-form-field>
                                 <mat-select placeholder="Region" [(ngModel)]="new_call_report.region_id"
                                             name="region_id" (selectionChange)="onRegionChanges($event)">
-                                    <mat-option [value]="null">None</mat-option>
                                     <mat-option *ngFor="let region of regions" [value]="region.id">
                                         {{region.name}}
                                     </mat-option>
@@ -69,7 +68,7 @@
                         </div>
                     </div>
                     <div class="col-sm-5">
-                        <div class="form-label-group">
+                        <div class="form-label-group" *ngIf="new_call_report.region_id != 1 && new_call_report.region_id != 2">
                             <mat-form-field>
                                 <mat-select placeholder="Zone" [(ngModel)]="new_call_report.zone_id" name="zone_id"
                                             (selectionChange)="onZoneChanges($event)">
@@ -83,7 +82,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="form-label-group">
+                        <div class="form-label-group" *ngIf="new_call_report.region_id != 1 && new_call_report.region_id != 2">
                             <mat-form-field>
                                 <mat-select placeholder="Wereda" [(ngModel)]="new_call_report.wereda_id"
                                             name="wereda_id"
@@ -96,7 +95,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="form-label-group">
+                        <div class="form-label-group" *ngIf="new_call_report.region_id != 1 && new_call_report.region_id != 2">
                             <mat-form-field>
                                 <mat-select placeholder="City" [(ngModel)]="new_call_report.city_id" name="city_id"
                                             (selectionChange)="onCityChanges($event)">

@@ -14,7 +14,7 @@
           <thead class=" text-primary">
           <th> No</th>
           <th> Group Name</th>
-          <th> Created By</th>
+          <th> Unique Code</th>
           <th></th>
           </thead>
           <tbody>
@@ -25,7 +25,7 @@
               <button mat-raised-button type="button" matTooltip="Contact Group" color="default"
                       [matTooltipPosition]="'above'">{{team.name}}</button>
             </td>
-            <td class="text-primary"> {{team.created_by.full_name}} </td>
+            <td class="text-primary"> {{team.unique_code}} </td>
             <td class="td-actions">
               <button mat-raised-button type="button" matTooltip="Edit"
                       [matTooltipPosition]="'above'" (click)="updateTeam(team)"
@@ -50,3 +50,4 @@
     </div>
   </div>
 </div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>
