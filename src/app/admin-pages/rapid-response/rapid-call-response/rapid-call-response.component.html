@@ -29,6 +29,11 @@
       <td> {{callReport.report_type}}</td>
       <td class="text-primary"> {{callReport.created_at | date: 'short'}}</td>
       <td class="td-actions">
+        <button mat-raised-button type="button" matTooltip="Assign Report"
+                [matTooltipPosition]="'above'" (click)="assignRapidResponseReport(callReport)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+          <i class="material-icons">event_seat</i>
+        </button>
         <button mat-raised-button type="button" matTooltip="Categorize"
                 [matTooltipPosition]="'above'" (click)="updateRapidCallReport(callReport)"
                 class="btn btn-danger btn-link btn-sm btn-just-icon">

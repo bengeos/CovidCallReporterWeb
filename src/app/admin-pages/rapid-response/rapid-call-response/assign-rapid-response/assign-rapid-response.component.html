@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Assign Report To Team</h1>
+<div mat-dialog-content>
+  <div class="form-label-group">
+    <mat-form-field>
+      <mat-select placeholder="Team Name" [(ngModel)]="newAssignCallReport.contact_group_id"
+                  name="contact_group_id">
+        <mat-option *ngFor="let team of teams" [value]="team.id">
+          {{team.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-label-group">
+    <mat-form-field class="example-full-width">
+                                <textarea matInput type="text" placeholder="Message For Team" rows="3"
+                                          [(ngModel)]="newAssignCallReport.message" name="message"></textarea>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="form-label-group">
+    <button mat-raised-button (click)="assignCallReport()" class="btn btn-primary pull-right">Assign Report</button>
+    <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
+  </div>
+</div>
+<div class="my-container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }"></ngx-loading>
+</div>
