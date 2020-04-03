@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     private processAuthCallBack(authCall: AuthCallback) {
         if (authCall.isValid) {
             this.router.navigate(['/admin/dashboards']);
-            // console.log('Login Call Back', authCall.message);
         } else {
             this.loading = false;
             this.new_login_user = new LoginUser();
