@@ -134,4 +134,12 @@ export class ContactsComponent implements OnInit, OnChanges {
             }
         });
     }
+
+    public getAllContacts() {
+
+    }
+
+    public filterContacts() {
+
+    }
 }
