@@ -80,7 +80,7 @@ import { AssignRapidResponseComponent } from './rapid-response/rapid-call-respon
         UpdateRegionComponent, NewZoneComponent, UpdateZoneComponent, NewWeredaComponent, UpdateWeredaComponent,
         UpdateCallReportComponent, NewReportComponent, UpdateRapidCallResponseComponent, NewCityComponent,
         UpdateCityComponent, NewSubCityComponent, UpdateSubCityComponent, NewContactComponent, UpdateContactComponent,
-        NewTeamComponent, UpdateTeamComponent, AssignFollowupReportComponent, UpdateAssignedFollowupReportComponent],
+        NewTeamComponent, UpdateTeamComponent, AssignFollowupReportComponent, UpdateAssignedFollowupReportComponent, AssignRapidResponseComponent],
     imports: [
         CommonModule,
         AdminPagesRoutingModule,

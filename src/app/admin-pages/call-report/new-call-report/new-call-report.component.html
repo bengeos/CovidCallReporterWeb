@@ -58,7 +58,7 @@
                     <div class="col-sm-7">
                         <div class="form-label-group">
                             <mat-form-field>
-                                <mat-select placeholder="Region" [(ngModel)]="new_call_report.region_id"
+                                <mat-select placeholder="Region (*)" [(ngModel)]="new_call_report.region_id"
                                             name="region_id" (selectionChange)="onRegionChanges($event)">
                                     <mat-option *ngFor="let region of regions" [value]="region.id">
                                         {{region.name}}
@@ -117,6 +117,17 @@
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-label-group">
+                            <div class="form-label-group">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Address" [(ngModel)]="new_call_report.address" name="address">
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -201,7 +212,7 @@
     </div>
     <br>
     <div class="form-label-group">
-        <button mat-raised-button (click)="addNewCallReport()" class="btn btn-primary pull-right">Add Report</button>
+        <button [disabled]="isFormFilled()" mat-raised-button (click)="addNewCallReport()" class="btn btn-primary pull-right">Add Report</button>
         <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
     </div>
 </div>

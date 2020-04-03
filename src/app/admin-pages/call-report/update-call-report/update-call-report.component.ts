@@ -134,4 +134,12 @@ export class UpdateCallReportComponent implements OnInit {
         this.dialogRef.close();
     }
 
+    public isFormFilled() {
+        if (this.new_call_report.region_id != null && this.new_call_report.phone && this.new_call_report.report_type) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

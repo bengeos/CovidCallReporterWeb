@@ -1,4 +1,6 @@
 <div class="table-responsive">
+  <label *ngIf="allCallReports">Assigned Call Reports (Toll Free)</label>
+  <label *ngIf="!allCallReports">New Call Reports (Toll Free)</label>
   <mat-paginator [length]="paginated_call_report.total"
                  [pageSize]="paginated_call_report.per_page"
                  [pageSizeOptions]="pageSizeOptions"
@@ -49,3 +51,4 @@
                  (page)="updatePaginatedCallReportData($event)" showFirstLastButtons>
   </mat-paginator>
 </div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>

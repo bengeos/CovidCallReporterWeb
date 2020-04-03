@@ -3,8 +3,9 @@ import {Zone} from '../settings/zones/zones.objects';
 import {Wereda} from '../settings/weredas/weredas.objects';
 import {Kebele} from '../settings/Settings.Objects';
 import {City} from '../settings/cities/cities.object';
-import {SubCity} from "../settings/sub-cities/sub-cities.object";
-import {User} from "../user/user.objects";
+import {SubCity} from '../settings/sub-cities/sub-cities.object';
+import {User} from '../user/user.objects';
+import {Team} from "../team-contacts/team-contacts.objects";
 
 /**
  * Created by BENGEOS on 3/21/20.
@@ -27,7 +28,8 @@ export class CallReport {
     public phone: string;
     public second_phone: string;
     public full_name: string;
-    public occupation: number;
+    public occupation: string;
+    public address: string;
     public other: string;
     public gender: string;
     public is_travel_hx: boolean;
@@ -36,6 +38,7 @@ export class CallReport {
     public is_visited_hf: boolean;
     public report_type: string;
     public node: any;
+    public assigned_team: AssignedTeam;
     public rumor_types: RumorType[];
     public report_group_id: number;
     public description: string;
@@ -120,4 +123,11 @@ export class AssignedCallReport {
     public assignment_type: string;
     public message: string;
     public created_by: User;
+}
+
+export class AssignedTeam {
+    public id: number;
+    public call_report_id: number;
+    public contact_group_id: number;
+    public contact_group: Team;
 }

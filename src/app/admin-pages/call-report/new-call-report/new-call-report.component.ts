@@ -30,7 +30,7 @@ export class NewCallReportComponent implements OnInit, OnChanges {
     public kebeles: Kebele[] = [];
     public genders = ['MALE', 'FEMALE'];
     public favoriteSeason = '';
-    public providedInfromation: string[] = ['Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment'];
+    public providedInfromation: string[] = ['Rumor', 'Sign-Symptom', 'Transmission Mode', 'Prevention', 'Treatment'];
     public toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
     public rummerTypes: RumorType[] = [];
     public loading = false;
@@ -125,12 +125,21 @@ export class NewCallReportComponent implements OnInit, OnChanges {
         selectedSubCity.id = this.new_call_report.sub_city_id;
         this.new_call_report.kebele_id = null;
     }
+
     public addNewCallReport() {
         this.dialogRef.close(this.new_call_report);
     }
 
     public cancel() {
         this.dialogRef.close();
+    }
+
+    public isFormFilled() {
+        if (this.new_call_report.region_id != null && this.new_call_report.phone && this.new_call_report.report_type) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

@@ -121,6 +121,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-label-group">
+                            <div class="form-label-group">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Address" [(ngModel)]="new_call_report.address" name="address">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-sm-5">
@@ -200,7 +211,7 @@
     </div>
     <br>
     <div class="form-label-group">
-        <button mat-raised-button (click)="updateCallReport()" class="btn btn-primary pull-right">Update Report</button>
+        <button [disabled]="isFormFilled()" mat-raised-button (click)="updateCallReport()" class="btn btn-primary pull-right">Update Report</button>
         <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
     </div>
 </div>

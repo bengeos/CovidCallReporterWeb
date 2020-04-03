@@ -3,10 +3,7 @@ import {CallReport, PaginatedCallReport} from '../../call-report/call-reports.ob
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {SwalMessagesService} from '../../services/swal-messages.service';
 import {CallReportsService} from '../../services/call-reports.service';
-import {NewReportComponent} from '../../report/call-reports/new-report/new-report.component';
 import {UpdateRapidCallResponseComponent} from './update-rapid-call-response/update-rapid-call-response.component';
-import {UpdateAssignedFollowupReportComponent} from "../../follow-up/followup-call-reports/update-assigned-followup-report/update-assigned-followup-report.component";
-import {AssignFollowupReportComponent} from "../../follow-up/followup-call-reports/assign-followup-report/assign-followup-report.component";
 import {AssignRapidResponseComponent} from "./assign-rapid-response/assign-rapid-response.component";
 
 @Component({

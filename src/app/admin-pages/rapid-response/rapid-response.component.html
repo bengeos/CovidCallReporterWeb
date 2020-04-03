@@ -1,55 +1,93 @@
 <div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 col-md-12">
-        <div class="card">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <span class="nav-tabs-title">Reports:</span>
-                <ul class="nav nav-tabs" data-tabs="tabs">
-                  <li class="nav-item">
-                    <a mat-button class="nav-link active" href="#new_call_reports" data-toggle="tab"
-                       (click)="changeReports(false)">
-                      <i class="material-icons">bug_report</i> New Toll Free
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a mat-button class="nav-link" href="#new_community" data-toggle="tab"
-                       (click)="changeReports(false)">
-                      <i class="material-icons">code</i> New Community
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a mat-button class="nav-link" href="#new_travelers" data-toggle="tab"
-                       (click)="changeReports(false)">
-                      <i class="material-icons">cloud</i> New Medical
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-primary">
+                        <div class="nav-tabs-navigation pull-right">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Reports In Followup:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#all_call_reports" data-toggle="tab"
+                                           (click)="changeReports(true)">
+                                            <i class="material-icons">ring_volume</i> All Toll Free
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#all_community" data-toggle="tab"
+                                           (click)="changeReports(true)">
+                                            <i class="material-icons">supervisor_account</i> Community
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#all_travelers" data-toggle="tab"
+                                           (click)="changeReports(true)">
+                                            <i class="material-icons">local_hospital</i> Medical
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">New Reports FOr Followup:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link active" href="#new_call_reports" data-toggle="tab"
+                                           (click)="changeReports(false)">
+                                            <i class="material-icons">ring_volume</i> Toll Free
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#new_community" data-toggle="tab"
+                                           (click)="changeReports(false)">
+                                            <i class="material-icons">supervisor_account</i> Community
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#new_travelers" data-toggle="tab"
+                                           (click)="changeReports(false)">
+                                            <i class="material-icons">local_hospital</i> Medical
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="new_call_reports">
+                                <app-rapid-call-response [allCallReports]="allCallReports"></app-rapid-call-response>
+                            </div>
+                            <div class="tab-pane" id="new_community">
+                                <app-community-reports></app-community-reports>
+                            </div>
+                            <div class="tab-pane" id="new_travelers">
+                                <app-traveler-reports></app-traveler-reports>
+                            </div>
+
+                            <div class="tab-pane" id="old_call_reports">
+                                <app-rapid-call-response [allCallReports]="allCallReports"></app-rapid-call-response>
+                            </div>
+                            <div class="tab-pane" id="old_community">
+                                <app-community-reports></app-community-reports>
+                            </div>
+                            <div class="tab-pane" id="old_travelers">
+                                <app-traveler-reports></app-traveler-reports>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="card-body">
-            <div class="tab-content">
-              <div class="tab-pane active" id="new_call_reports">
-                <app-rapid-call-response [allCallReports]="allCallReports"></app-rapid-call-response>
-              </div>
-              <div class="tab-pane" id="new_community">
-                <app-community-reports></app-community-reports>
-              </div>
-              <div class="tab-pane" id="new_travelers">
-                <app-traveler-reports></app-traveler-reports>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '5px' }"></ngx-loading>
